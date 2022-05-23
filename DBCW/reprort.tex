@@ -1,0 +1,319 @@
+\documentclass[a4paper,14pt]{extreport}
+
+\usepackage{cmap} % Улучшенный поиск русских слов в полученном pdf-файле
+\usepackage[T2A]{fontenc} % Поддержка русских букв
+\usepackage[utf8]{inputenc} % Кодировка utf8
+\usepackage[english,russian]{babel} % Языки: русский, английский
+%\usepackage{pscyr} % Нормальные шрифты
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{left=30mm}
+\geometry{right=10mm}
+\geometry{top=20mm}
+\geometry{bottom=20mm}
+\usepackage{titlesec}
+%\usepackage[ruled,longend]{algorithm2e}
+\usepackage{textgreek}
+\usepackage{algpseudocode}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usepackage{pdfpages}
+\usepackage{algorithm}
+\renewcommand{\listalgorithmname}{Список алгоритмов}
+\floatname{algorithm}{Алгоритм}
+\usepackage{amssymb}
+\titleformat{\section}
+{\normalsize\bfseries}
+{\thesection}
+{1em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{8pt}
+\titlespacing*{\section}{\parindent}{*4}{*4}
+\titlespacing*{\subsection}{\parindent}{*4}{*4}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{float}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+\onehalfspacing % Полуторный интервал
+\frenchspacing
+\usepackage{indentfirst} % Красная строка
+\usepackage{titlesec}
+\titleformat{\chapter}{\LARGE\bfseries}{\thechapter}{20pt}{\LARGE\bfseries}
+\titleformat{\section}{\Large\bfseries}{\thesection}{20pt}{\Large\bfseries}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstdefinestyle{rustlang}{
+    language=Rust,
+    backgroundcolor=\color{white},
+    basicstyle=\footnotesize\ttfamily,
+    keywordstyle=\color{purple},
+    stringstyle=\color{green},
+    commentstyle=\color{gray},
+    numbers=left,
+    stepnumber=1,
+    numbersep=5pt,
+    frame=single,
+    tabsize=4,
+    captionpos=t,
+    breaklines=true,
+    breakatwhitespace=true,
+    escapeinside={\#*}{*)},
+    morecomment=[l][\color{magenta}]{\#},
+    columns=fullflexible
+}
+
+\usepackage{pgfplots}
+\usetikzlibrary{datavisualization}
+\usetikzlibrary{datavisualization.formats.functions}
+\usepackage{graphicx}
+\newcommand{\img}[3] {
+    \begin{figure}[h]
+        \center{\includegraphics[height=#1]{assets/img/#2}}
+        \caption{#3}
+        \label{img:#2}
+    \end{figure}
+}
+\newcommand{\boximg}[3] {
+    \begin{figure}[h]
+        \center{\fbox{\includegraphics[height=#1]{assets/img/#2}}}
+        \caption{#3}
+        \label{img:#2}
+    \end{figure}
+}
+\usepackage[justification=centering]{caption} % Настройка подписей float объектов
+\usepackage[unicode,pdftex]{hyperref} % Ссылки в pdf
+\hypersetup{hidelinks}
+\newcommand{\code}[1]{\texttt{#1}}
+\usepackage{icomma} % Интеллектуальные запятые для десятичных чисел
+\usepackage{csvsimple}
+
+\usepackage{color} %use color
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+%Customize a bit the look
+\lstset{ %
+	backgroundcolor=\color{white}, % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+	basicstyle=\footnotesize, % the size of the fonts that are used for the code
+	breakatwhitespace=false, % sets if automatic breaks should only happen at whitespace
+	breaklines=true, % sets automatic line breaking
+	captionpos=b, % sets the caption-position to bottom
+	commentstyle=\color{mygreen}, % comment style
+	deletekeywords={...}, % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)}, % if you want to add LaTeX within your code
+	extendedchars=true, % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	frame=single, % adds a frame around the code
+	keepspaces=true, % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue}, % keyword style
+	% language=Octave, % the language of the code
+	morekeywords={*,...}, % if you want to add more keywords to the set
+	numbers=left, % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt, % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black}, % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false, % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false, % underline spaces within strings only
+	showtabs=false, % show tabs within strings adding particular underscores
+	stepnumber=1, % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve}, % string literal style
+	tabsize=2, % sets default tabsize to 2 spaces
+	title=\lstname % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+%END of listing package%
+
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+%define Javascript language
+\lstdefinelanguage{JavaScript}{
+	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={class, export, boolean, throw, implements, import, this},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstset{
+	language=JavaScript,
+	extendedchars=true,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false,
+	showspaces=false,
+	numbers=left,
+	numberstyle=\footnotesize,
+	numbersep=9pt,
+	tabsize=2,
+	breaklines=true, 
+	showtabs=false,
+	captionpos=b
+}
+
+\definecolor{delim}{RGB}{20,105,176}
+\definecolor{numb}{RGB}{106, 109, 32}
+\definecolor{string}{rgb}{0.64,0.08,0.08}
+
+\lstdefinelanguage{json}{
+    numbers=left,
+    numberstyle=\small,
+    frame=single,
+    rulecolor=\color{black},
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{gray}\hookrightarrow\space}},
+    breakatwhitespace=true,
+    basicstyle=\ttfamily\small,
+    upquote=true,
+    morestring=[b]",
+    stringstyle=\color{string},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+\graphicspath{{img/}}
+
+\begin{document}
+
+\setcounter{page}{2}
+
+\tableofcontents
+
+\chapter*{Введение}
+
+\addcontentsline{toc}{chapter}{Введение}
+
+
+\chapter{Аналитическая часть}\label{anal}
+
+\section{Формализация задачи}
+
+Каждая музыкальная композиция имеет альбом, соответственно трек не может существовать без альбома, который, в свою очередь, не может существовать без исполнителя.
+
+Музыку пользователь может хранить только в плейлистах (избранные композиции --- частный случай плейлиста). Соответственно должна существовать возможность добавить, удалить плейлист. 
+
+Существуют различные виды пользователей: обычный, администратор, исполнитель. Возможностью администратора является возможность выдачи прав выкладывать альбомы исполнителю.
+
+Взаимодействие с продуктом происходит по схеме, представленной на рисунке 
+
+\section{Базы данных и системы управления базами данных}
+
+В задаче разбора и хранения информации рабочей программы дисциплины важную роль имеет выбор модели хранения данных. Для персистентного хранения данных используются базы данных \cite{bib:2}. Для управления этими базами данных используется системы управления данных(СУБД) \cite{bib:3}. Система управления базами данных -- это совокупность программных и лингвистических средств общего или специального назначения, обеспечивающих управление созданием и использованием баз данных.
+
+
+\subsection{Классификация баз данных по способу хранения}
+
+Базы данных, по способу хранения, делятся на две группы --- строковые и колоночные. Каждый из этих типов служит для выполнения для определенного рода задач.\\
+
+\noindent\textbf{Строковые базы данных}\\
+
+Строковыми базами даных называются такие базы данных, записи которых в памяти представляются построчно. Строковые баз данных используются в транзакционных системах (англ. OLTP \cite{bib:4}). Для таких систем характерно большое количество коротких транзакций с операциями вставки, обновления и удаления данных --- \texttt{INSERT}, \texttt{UPDATE}, \texttt{DELETE}. 
+
+Основной упор в системах OLTP делается на очень быструю обработку запросов, поддержание целостности данных в средах с множественным доступом и эффективность, которая измеряется количеством транзакций в секунду. 
+
+Схемой, используемой для хранения транзакционных баз данных, является модель сущностей, которая включает в себя запросы, обращающиеся к отдельным записям. Так же, в OLTP-системах есть подробные и текущие данных.\\
+
+\noindent\textbf{Колоночные базы данных}\\
+
+Колоночными базами данных называются базы данных, записи которых в памяти представляются по столбцам. Колоночные базы данных используется в аналитических системах (англ. OLAP \cite{bib:5}). OLAP характеризуется низким объемом транзакций, а запросы часто сложны и включают в себя агрегацию. Время отклика для таких систем является мерой эффективности.
+
+OLAP-системы широко используются методами интеллектуального анализа данных. В таких базах есть агрегированные, исторические данные, хранящиеся в многомерных схемах. 
+
+\subsection{Выбор модели хранения данных для решения задачи}
+
+Для решения задачи построчное хранение данных преобладает над колоночным хранением по нескольким причинам:
+
+\begin{itemize}
+	\item задача предполагает постоянное добавление и изменение данных;
+	\item задача предполагает быструю отзывчивость на запросы пользователя;
+	\item задача не предполагает выполнения аналитических запросов;
+\end{itemize}
+
+\section{Формализация данных}
+Для создания базы данных, хранящей музыкальные композиции, необходимо выделить сущности из соответствующей предметной области.
+
+Можно выделить следующие сущности БД.
+\begin{enumerate}
+\item Музыкальная композиция. Она в качестве атрибутов имеет:
+\begin{itemize}
+\item название;
+\item альбом, в котором она была выпущена (не существует композиции без альбома);
+\item продолжительность.
+\end{itemize}
+
+\item Музыкальный альбом. Он в качестве атрибутов имеет:
+\begin{itemize}
+\item название;
+\item исполнителя; 
+\end{itemize}
+
+\item Исполнитель. Он в качестве атрибутов имеет название.
+
+\item Пользователь. Он в качестве атрибутов имеет:
+\begin{itemize}
+\item логин электронной почты;
+\item пароль; 
+\end{itemize}
+
+\item Плейлист. Он в качестве атрибутов имеет название.
+\end{enumerate}
+
+На рисунке \ref{fig:erd} представлена диаграмма сущность-связь для данной задачи.
+
+
+
+
+\section{Алгоритм для определения схожести музыкальных интересов}\label{ac}
+
+В данном методе \cite{bib:1} схожесть рассчитывается как коэффициент корреляции между векторами прослушиваний треков для пользователей. Для этого может использоваться коэффициент корреляции или косинус угла между векторами. Дополнительным плюсом для них является их нормированность, так как значения укладываются в [0, 1]. Для данных методов хорошо зарекомендовал себя коэффициент корреляции, в котором из рейтингов $r_{u,i}$ вычитаются средние значения рейтинга  $\displaystyle \overline{r}_u$ для данного пользователя, как показано в формуле \ref{cor_eq}. Это помогает учесть различные подходы к составлению рейтинга у пользователей, одни из которых могут оперировать лишь высокими оценками, а другие выставлять их лишь немногим предметам. Таким образом корреляция вычисляется по следующей формуле.
+
+\begin{equation}\label{cor_eq}
+\displaystyle sim(i, j) = \cfrac{\sum_{u \in U_{i, j}}(r_{u,i} - \overline{r}_{U,i})(r_{u,j} - \overline{r}_{U,j})} {\sqrt{\sum_{u \in U_{i, j}}(r_{u,i} - \overline{r}_{U,i})^2} \sqrt{\sum_{u \in U_{i, j}}(r_{u,j} - \overline{r}_{U,j})^2}}\, ,
+\end{equation}
+где $\displaystyle U_{i,j}$ --- пересечение множеств треков прослушанных пользователями $i$, $j$; $u$ --- трек из данного множества; $\displaystyle r_{u,k}$ --- количество прослушиваний трека $u$ пользователем $k$; $\displaystyle \overline{r}_{U,k}$ --- среднее количество прослушиваний треков из множества $U$ пользователем $k$.
+\clearpage
+
+\section{Вывод из аналитического раздела}
+
+В данном разделе:
+
+\begin{itemize}
+ \item рассмотрена структура рабочей программы дисциплины и выявлены её наиболее интересные части;
+ \item проанализированы способы хранения информации для система и выбраны оптимальные способы для решения поставленной задачи; 
+ \item проведен анализ СУБД, используемых для решения задачи и также выбраны оптимальные информационные системы; 
+
+ \item формализованы данные, используемые в системе.
+\end{itemize}
+
+\textsl{}\begin{thebibliography}{9}
+	\addcontentsline{toc}{chapter}{ЛИТЕРАТУРА}
+	\label{cha:biblio}    
+	\bibitem{bib:2} Кузин А. В., Левонисова С. В. Базы данных. – 2005.
+	\bibitem{bib:3} Лазицкас Е. А., Загумённикова И. Н., Гилевский П. Г. Базы данных и системы управления базами данных. – 2016.
+	\bibitem{bib:4} Корнилов Е. Г., Долгова Т. Г. Современное применение OLAP и OLTP технологий в экономике //Актуальные проблемы авиации и космонавтики. – 2010. – Т. 1. – №. 6. – С. 419-420.
+	\bibitem{bib:5} Кудрявцев Ю. OLAP-технологии: обзор решаемых задач и исследований //Бизнес-информатика. – 2008. – №. 1. – С. 66-70.
+	\bibitem{bib:1}Дзюба А. А. Рекомендации треков в социальных сетях.
+\end{thebibliography}
+
+\end{document}
