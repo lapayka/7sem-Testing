@@ -2,9 +2,7 @@
 
 #include <map>
 
-#include "AdminConnect.h"
-#include "ArtistConnect.h"
-#include "StUserConnect.h"
+#include "IConnect.h"
 
 using namespace std;
 class Config

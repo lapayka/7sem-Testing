@@ -1,6 +1,5 @@
 #pragma once
 #include "IPgConnect.h"
-
 #include "ConnectException.h"
 
 class AdminConnect :

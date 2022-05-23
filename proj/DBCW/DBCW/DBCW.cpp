@@ -11,15 +11,8 @@
 #include "ArtistInterface.h"
 #include "UserInterface.h"
 #include "Login.h"
+#include "ConConfig.h"
 
-
-
-static void
-exit_nicely(PGconn* conn)
-{
-    PQfinish(conn);
-    exit(1);
-}
 
 int main(int argc, char** argv)
 {

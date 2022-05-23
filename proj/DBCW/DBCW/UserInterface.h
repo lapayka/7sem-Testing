@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseInterface.h"
 #include "Facade.h"
-#include "ConConfig.h"
+#include "Config.h"
 #include "View.h"
 
 class UserInterface :

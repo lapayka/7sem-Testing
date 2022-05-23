@@ -136,7 +136,6 @@ private:
 				string password;
 				cin >> password;
 
-				ConConfig config;
 				if (Facade(config, "", "4Nikarulez_7", ADMIN_CONNECT).loginUser(email, password))
 				{
 					cout << "\nSuccess login\n" << std::endl;

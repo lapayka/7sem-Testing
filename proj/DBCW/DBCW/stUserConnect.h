@@ -1,5 +1,8 @@
 #pragma once
 #include "IPgConnect.h"
+
+#include "../DBCW/LoginException.h"
+#include "../DBCW/ConnectException.h"
 class stUserConnect :
     public IPgConnect
 {
