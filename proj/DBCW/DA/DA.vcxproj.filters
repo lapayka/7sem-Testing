@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="PgConnect">
+      <UniqueIdentifier>{6db9da88-0c8c-44e1-8d12-701c6d21e7ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{ad6aeb31-6615-4df1-9262-59e335fc22b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Repository">
+      <UniqueIdentifier>{a1f86181-6dce-4984-9174-a02cb2068988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Repository\PgRepository">
+      <UniqueIdentifier>{5fc782a5-8ea8-47be-90fb-eaf2ce4186ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LiteConnect">
+      <UniqueIdentifier>{d5b88a58-9ca9-42b6-a977-45338388b8b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Repository\LtRepository">
+      <UniqueIdentifier>{addc1593-4b05-4b2d-840d-2f7c0b1cf81d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\DBCW\IAlbumsRepository.h">
+      <Filter>Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\IArtistRepository.h">
+      <Filter>Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\IGraphRepo.h">
+      <Filter>Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\IMusRepository.h">
+      <Filter>Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\IPlaylistRepository.h">
+      <Filter>Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\ITablesRepository.h">
+      <Filter>Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\IUserRepo.h">
+      <Filter>Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\PgAlbumRepository.h">
+      <Filter>Repository\PgRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\PgArtistRepository.h">
+      <Filter>Repository\PgRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\PgGraphRepository.h">
+      <Filter>Repository\PgRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\PgMusRepository.h">
+      <Filter>Repository\PgRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\PgPlaylistRepository.h">
+      <Filter>Repository\PgRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\PgTablesRepository.h">
+      <Filter>Repository\PgRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\PgUserRepo.h">
+      <Filter>Repository\PgRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\AdminConnect.h">
+      <Filter>PgConnect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\ArtistConnect.h">
+      <Filter>PgConnect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\IPgConnect.h">
+      <Filter>PgConnect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\stUserConnect.h">
+      <Filter>PgConnect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\ConConfig.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCW\Config.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteConnect.h">
+      <Filter>LiteConnect</Filter>
+    </ClInclude>
+    <ClInclude Include="LtAlRepo.h">
+      <Filter>Repository\LtRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="LtArRepo.h">
+      <Filter>Repository\LtRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="LtGraphRepo.h">
+      <Filter>Repository\LtRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="LtMusRepo.h">
+      <Filter>Repository\LtRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="LtPlstRepo.h">
+      <Filter>Repository\LtRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="LtTbRepo.h">
+      <Filter>Repository\LtRepository</Filter>
+    </ClInclude>
+    <ClInclude Include="LtUsRepo.h">
+      <Filter>Repository\LtRepository</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\DBCW\PgAlbumRepository.cpp">
+      <Filter>Repository\PgRepository</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DBCW\PgMusRepository.cpp">
+      <Filter>Repository\PgRepository</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DBCW\PgPlaylistRepository.cpp">
+      <Filter>Repository\PgRepository</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DBCW\PgTablesRepository.cpp">
+      <Filter>Repository\PgRepository</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DBCW\ConConfig.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DBCW\Config.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
