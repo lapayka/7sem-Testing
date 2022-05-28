@@ -1,6 +1,7 @@
 #pragma once
 #include "../DBCW/IGraphRepo.h"
-#include <sqlite3.h>
+#include "../../SQLlite/sqlite3.h"
+
 class LtGraphRepo :
     public IGraphRepo
 {
