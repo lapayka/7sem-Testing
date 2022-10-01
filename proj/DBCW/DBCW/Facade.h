@@ -15,9 +15,9 @@ private:
 	shared_ptr<IConnect> connect;
 	Repositories repos;
 public:
-	Facade(Config& config, const string& email, const string& pass, Role role)
+	Facade(shared_ptr<Config> config, const string& email, const string& pass, Role role)
 		:
-		connect(config.getConnectionMap()[role](email, pass)),
+		connect(config->getConnectionMap()[role](email, pass)),
 		repos(connect->getRepos())
 	{
 	}

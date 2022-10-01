@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -78,7 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\DataBases\PostgreSQL\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files\PostgreSQL\14\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -162,14 +162,6 @@
     <ClInclude Include="..\DBCW\PgTablesRepository.h" />
     <ClInclude Include="..\DBCW\PgUserRepo.h" />
     <ClInclude Include="..\DBCW\stUserConnect.h" />
-    <ClInclude Include="LiteConnect.h" />
-    <ClInclude Include="LtAlRepo.h" />
-    <ClInclude Include="LtArRepo.h" />
-    <ClInclude Include="LtGraphRepo.h" />
-    <ClInclude Include="LtMusRepo.h" />
-    <ClInclude Include="LtPlstRepo.h" />
-    <ClInclude Include="LtTbRepo.h" />
-    <ClInclude Include="LtUsRepo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\DBCW\ConConfig.cpp" />

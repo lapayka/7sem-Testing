@@ -47,10 +47,10 @@ RETURN QUERY
 		(select uc.muid as mid1 from uc where uc.usid = id1)
 		intersect
 		(select uc.muid as mid1 from uc where uc.usid = id2))
-	select case  when var_samp(t1.audrate) < 1 then 0
-				 when var_samp(t2.audrate) < 1 then 0
-				 when abs(covar_samp(t1.audrate, t2.audrate)) / sqrt(var_samp(t1.audrate) * (var_samp(t2.audrate)))  > 0.5 THEN 1
-				 else 0 end as correlation
+		
+	select case	  when sqrt(var_samp(t1.audrate) * (var_samp(t2.audrate))) = 0 then 0
+				  when abs(covar_samp(t1.audrate, t2.audrate)) / sqrt(var_samp(t1.audrate) * (var_samp(t2.audrate))) = 1 then 1 
+				  else 0 end as correlation
 	from
 		(select * 
 		from temp join uc on temp.mid1 = uc.muid
@@ -67,16 +67,3 @@ $$ LANGUAGE PLPGSQL;
 
 
 select id1, id2 from (select u1.id as id1, u2.id as id2, FN_FIND_CORRELATION(u1.email,  u2.email) as correlation from users u1 join users u2 on u1.email > u2.email) as tmp where tmp.correlation = 1;
-
-CREATE OR REPLACE PROCEDURE PR_DELETE_PLAYLIST(plst id)
-AS $$
-DECLARE pl_id int4;
-BEGIN
-    INSERT INTO playlists(name)
-    VALUES (playlist_name)
-    RETURNING id INTO pl_id;
-	
-	INSERT INTO UP (UsId, PlId)
-	VALUES (user_email, pl_id);
-END
-$$ LANGUAGE PLPGSQL;

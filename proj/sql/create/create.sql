@@ -10,13 +10,13 @@ drop table Users;
 
 create table if not exists Users(
 	id serial,
-	email varchar(30) primary key,
-	password varchar(30)
+	email varchar(50) primary key,
+	password varchar(50)
 );
 
 create table if not exists ArtistRequest (
 	id serial primary key,
-	UsId varchar(30) REFERENCES Users(email),
+	UsId varchar(50) REFERENCES Users(email),
 	name VARCHAR(50),
 	state varchar(10),
 	
@@ -25,14 +25,14 @@ create table if not exists ArtistRequest (
 
 create table if not exists Artists(
 	name VARCHAR(50),
-	email varchar(30) primary key,
-	password varchar(30)
+	email varchar(50) primary key,
+	password varchar(50)
 );
 
 create table if not exists Albums(
 	id serial primary key,
 	name VARCHAR(50),
-	ArId varchar(30) REFERENCES Artists (email)
+	ArId varchar(50) REFERENCES Artists (email)
 );
 
 create table if not exists MusComps(
@@ -52,7 +52,7 @@ create table if not exists Playlists(
 
 create table if not exists UP(
 	id serial primary key,
-	UsId varchar(30) REFERENCES Users(email),
+	UsId varchar(50) REFERENCES Users(email),
 	PlId int REFERENCES Playlists(id)
 );
 
@@ -64,7 +64,7 @@ create table if not exists PM(
 
 create table if not exists UC(
 	id serial primary key,
-	UsId varchar(30) REFERENCES Users(email),
+	UsId varchar(50) REFERENCES Users(email),
 	MuId int REFERENCES MusComps (id),
 	audRate int,
 	

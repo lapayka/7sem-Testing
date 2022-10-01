@@ -5,7 +5,7 @@
 #include "DBStartException.h"
 
 using namespace std;
-class ConnectException : public DBStartException
+class ConnectException : public std::exception
 {
 private:
 	string str;

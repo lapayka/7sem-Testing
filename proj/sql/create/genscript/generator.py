@@ -4,47 +4,102 @@ from random import uniform
 from random import choice
 
 
+mus_size = 10000
+
 faker = Faker()
 
-names = []
-passports = []
-
-
-passports = [faker.unique.pyint(4500000000, 4599999999) for i in range(1000)]
-names = [faker.unique.company() for i in range(1000)]
-
-
-banks = open("../data/banks.csv", "w")    
-for i in range(1000):
-    line = "{0}:{1}:{2}:{3}:{4}\n".format(names[i], faker.street_address(), randint(30000, 100000), randint(0, 100000000), names[randint(0, i)])
-    banks.write(line)
-    
-banks.close()
+emails = [faker.unique.email() for i in range(1750)]
 
 
 users = open("../data/users.csv", "w")    
 for i in range(1000):
-    line = "{0}:{1}:{2}:{3}\n".format(passports[i], faker.name(), faker.date(),randint(0, 10))
+    line = "{0};{1}\n".format(emails[i], faker.pystr()[:5])
     users.write(line)
     
 users.close()
 
 
-types = ["buy", "sell", "transaction"]
-transactions = open("../data/transactions.csv", "w")    
+aemails = emails[750:]
+
+artists = open("../data/artists.csv", "w")    
 for i in range(1000):
-    line = "{0}:{1}:{2}:{3}:{4}:{5}\n".format(i, choice(names), choice(passports), faker.date(), choice(types), randint(1, 100000))
-    transactions.write(line)
+    name = [faker.word() for i in range(randint(1, 2))]
+    name = " ".join(name)
+    line = "{0};{1};{2}\n".format(aemails[i], faker.pystr()[:5], name)
+    artists.write(line)
     
-transactions.close()
+artists.close()
 
-
-ctypes = ["credit", "debit"]
-psystem = ["MIR", "VISA", "MASTERCARD"]
-
-cards = open("../data/cards.csv", "w")    
-for i in range(1000):
-    line = "{0}:{1}:{2}:{3}:{4}:{5}:{6}\n".format(i, choice(names), choice(passports), choice(ctypes), choice(psystem) , randint(1, 100000), faker.date())
-    cards.write(line)
+albums = open("../data/albums.csv", "w")    
+for i in range(5000):
+    name = [faker.word() for i in range(randint(1, 2))]
+    name = " ".join(name)
+    line = "{0};{1}\n".format(choice(aemails), name)
+    albums.write(line)
     
-cards.close()
+albums.close()
+
+
+muscomps = open("../data/muscomps.csv", "w")  
+for i in range(mus_size):
+    name = [faker.word() for i in range(randint(1, 2))]
+    name = " ".join(name)
+    duration = str(randint(0, 10)) + ':' + str(randint(0, 59))
+    line = "{0};{1};{2};{3}\n".format(name, duration, randint(1000, 1000000000), randint(1, 1000))
+    muscomps.write(line)
+    
+muscomps.close()
+
+playlists = open("../data/playlists.csv", "w")    
+for i in range(5000):
+    name = [faker.word() for i in range(randint(1, 2))]
+    name = " ".join(name)
+    line = "{0}\n".format(name)
+    playlists.write(line)
+    
+playlists.close()
+
+emails = emails[:1000]
+up = open("../data/up.csv", "w")    
+for i in range(5000):
+    line = "{0};{1}\n".format(choice(emails), i + 1)
+    up.write(line)
+    
+up.close()
+
+pairs = []
+size = 100000
+uc = open("../data/uc.csv", "w")    
+for i in range(30000):
+    while True:
+        pair = [choice(emails), randint(1, mus_size)]
+        if pair not in pairs:
+            break
+        
+    #print(pair)
+    pairs.append(pair)
+    if (len(pairs) > size):
+        print(size)
+        size += 10000
+    line = "{0};{1};{2}\n".format(pair[0], pair[1], randint(1, 200))
+    uc.write(line)
+    
+uc.close()
+
+pm = open("../data/pm.csv", "w")
+
+for i in range(35000):    
+    line = "{0};{1}\n".format(randint(1, 5000), randint(1, mus_size))
+    pm.write(line)
+    
+pm.close()
+
+emails = emails[:750]
+requests = open("../data/requests.csv", "w")    
+for i in range(10):
+    name = [faker.word() for i in range(randint(1, 2))]
+    name = " ".join(name)
+    line = "{0};{1};{2}\n".format(choice(emails), name, 'active')
+    requests.write(line)
+    
+requests.close()
