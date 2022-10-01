@@ -1,0 +1,9 @@
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
+
+include ( libs )
+
+
+add_subdirectory( DBCW )
+add_subdirectory( DA )
+add_subdirectory( Interface )
+add_subdirectory( Main )

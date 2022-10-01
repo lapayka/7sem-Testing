@@ -3,8 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+*__all_src.txt
 *.bak
-*.txt
 *.pdf
 *.csv
 *.docx
