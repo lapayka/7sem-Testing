@@ -11,6 +11,6 @@ private:
 	string str;
 public:
 	LoginException(const string& _str) : str(_str) {}
-	virtual char const* what() const override { return str.c_str(); };
+	virtual char const* what() const noexcept override { return str.c_str(); }
 };
 

@@ -27,12 +27,14 @@ target_compile_definitions ( ${PROJECT_NAME}
             "OATPP_SWAGGER_RES_PATH=\"${OATPP_BASE_DIR}/bin/oatpp-swagger/res\""
 )
 
-target_include_directories( ${PROJECT_NAME} PUBLIC ${oatpp_INCLUDE_DIRS} ${oatpp-swagger_INCLUDE_DIRS} )
+target_include_directories( ${PROJECT_NAME} PUBLIC ${oatpp_INCLUDE_DIRS} ${oatpp-swagger_INCLUDE_DIRS} ../DBCW )
 
 target_link_libraries ( ${PROJECT_NAME} 
   PUBLIC
+    DBCW
     oatpp::oatpp
     oatpp::oatpp-swagger
+    OpenSSL::Crypto
     jsoncpp_lib
     jwt
 )

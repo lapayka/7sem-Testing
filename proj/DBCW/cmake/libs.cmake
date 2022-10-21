@@ -12,8 +12,17 @@ set (LIBPQ_ROOT ${LIBS_ROOT}/libpq )
 
 add_library( libpq INTERFACE IMPORTED)
 
-target_include_directories ( libpq INTERFACE ${LIBPQ_ROOT}/include )
-target_link_libraries ( libpq INTERFACE "${LIBPQ_ROOT}/bin/libpq.${LIB_EXT}")
+if (WIN32)
+	target_include_directories ( libpq INTERFACE ${LIBPQ_ROOT}/include )
+	target_link_libraries ( libpq INTERFACE "${LIBPQ_ROOT}/bin/libpq.${LIB_EXT}")
+else ()
+    target_include_directories ( libpq SYSTEM INTERFACE "/usr/include/postgresql" )
+    target_link_libraries ( libpq INTERFACE  "/usr/lib/x86_64-linux-gnu/libcrypt.so.1.1.0" "/usr/lib/x86_64-linux-gnu/libpq.so" )
+endif()
+
+#find_package(PostgreSQL REQUIRED)
+
+find_package( OpenSSL REQUIRED )
 
 #### oatpp ####
 

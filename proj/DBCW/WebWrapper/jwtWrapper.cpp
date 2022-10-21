@@ -19,7 +19,7 @@ std::shared_ptr<JWT::Payload> JWT::readAndVerifyToken(const std::string& token)
     m_verifier.verify(decoded);
 
     auto payload = std::make_shared<Payload>();
-    payload->userId = std::atoi(std::string(decoded.get_payload_claims().at("userId").as_string()).c_str());
+    payload->userId = std::atoi(std::string(decoded.get_payload_claim("userId").as_string()).c_str());
 
     return payload;
 }
