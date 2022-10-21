@@ -9,18 +9,21 @@ set ( Source_Files
 
 set ( Header_Files 
     ConfigFactory.h
+    Login.h
 )
 
 set ( all_sources ${Source_Files} ${Header_Files} )
 
 add_executable( ${PROJECT_NAME} ${all_sources} )
 
-target_include_directories( ${PROJECT_NAME} PRIVATE ${PostgreSQL_INCLUDE_DIRS} ../DA ../Interface ../DBCW)
+target_include_directories( ${PROJECT_NAME} PRIVATE ../DA ../Interface ../DBCW ../WebWrapper)
 
 target_link_libraries( ${PROJECT_NAME}
     PUBLIC
-        ${PostgreSQL_LIBRARIES}
+        libpq
         DA
         DBCW
         Interface
+        WebWrapper
+        jwt
 )

@@ -6,6 +6,7 @@
 #include "ArtistInterface.h"
 #include "ConnectException.h"
 #include "LoginException.h"
+#include "WebWrapper.h"
 
 class Login
 {
@@ -15,10 +16,12 @@ public:
 	Login() = delete;
 	Login(shared_ptr<Config> conf) : config(conf) {}
 
-	shared_ptr<BaseInterface> create()
+	shared_ptr<BaseInterface> create(bool IsWeb)
 	{
 		while (true)
 		{
+			if (IsWeb)
+				return shared_ptr<BaseInterface>(new WebWrapper(config));
 			system("cls");
 			cout << "Login as\n"
 				"1. User\n"
@@ -54,12 +57,12 @@ public:
 				{
 					return shared_ptr<BaseInterface>(new ArtistInterface(config, email, pass));
 				}
-				catch (const ConnectException& e)
+				catch (const ConnectException& )
 				{
 					cout << "\nError while connecting db\n" << std::endl;
 					break;
 				}
-				catch (const LoginException& e)
+				catch (const LoginException& )
 				{
 					cout << "\nWrong login or email\n" << std::endl;
 				}
@@ -118,12 +121,12 @@ private:
 				{
 					return shared_ptr<BaseInterface>(new UserInterface(config, email, pass));
 				}
-				catch (const ConnectException & e)
+				catch (const ConnectException & )
 				{
 					cout << "\nError while connecting db\n" << std::endl;
 					break;
 				}
-				catch (const LoginException& e)
+				catch (const LoginException& )
 				{
 					cout << "\nWrong login or email\n" << std::endl;
 				}

@@ -1,3 +1,5 @@
+cmake_minimum_required(VERSION 3.24)
+
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 include ( libs )
@@ -7,3 +9,4 @@ add_subdirectory( DBCW )
 add_subdirectory( DA )
 add_subdirectory( Interface )
 add_subdirectory( Main )
+add_subdirectory( WebWrapper )

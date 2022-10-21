@@ -22,7 +22,6 @@ public:
 	{
 	}
 
-
 	vector<MusItem> getMusicByName(const string& MusName) { return repos.musRepPtr->getMusByName(MusName); };
 	vector<MusItem> getMusicByAlbum(const string &AlbumName);
 	vector<MusItem> getMusicByAlbum(int id);
