@@ -5,6 +5,9 @@
 #include "TestConfig.h"
 #include "../DBCW/Facade.h"
 
+BOOST_AUTO_TEST_SUITE(PgAlbum)
+
+
 BOOST_AUTO_TEST_CASE(PgAlbumGetByNameTest)
 {
 	TestConnect conn("", "");
@@ -13,9 +16,10 @@ BOOST_AUTO_TEST_CASE(PgAlbumGetByNameTest)
 
 	vector<int> res(repos.albRepPtr->getAlbumsByName("vga11"));
 
-	BOOST_TEST(res[0] == 1);
-	BOOST_TEST(res[1] == 4);
+	BOOST_CHECK_EQUAL(res[0], 1);
+	BOOST_CHECK_EQUAL(res[1], 4);
 }
+
 
 BOOST_AUTO_TEST_CASE(PgAlbumCreateTestPlusDelete)
 {
@@ -36,8 +40,12 @@ BOOST_AUTO_TEST_CASE(PgAlbumCreateTestPlusDelete)
 
 	res = repos.albRepPtr->getAlbumsByName("testalbum");
 
-	BOOST_TEST(res.size() == 0);
+	BOOST_CHECK_EQUAL(res.size(), 0);
 }
+
+BOOST_AUTO_TEST_SUITE_END()
+BOOST_AUTO_TEST_SUITE(PgArtist)
+
 
 BOOST_AUTO_TEST_CASE(PgArtistsGetByNameTest)
 {
@@ -47,9 +55,13 @@ BOOST_AUTO_TEST_CASE(PgArtistsGetByNameTest)
 
 	vector<string> res(repos.artRepPtr->getArtistsByName("vgg"));
 
-	BOOST_TEST(res[0] == "abc1@mail.ru");
+	BOOST_CHECK_EQUAL(res[0], "abc1@mail.ru");
 
 }
+
+
+
+
 
 BOOST_AUTO_TEST_CASE(PgArtistsCreateTest)
 {
@@ -62,9 +74,16 @@ BOOST_AUTO_TEST_CASE(PgArtistsCreateTest)
 
 	vector<string> res(repos.artRepPtr->getArtistsByName("CreateTestArtist"));
 
-	BOOST_TEST(res[0] == "testEmail@mail.ru");
+	BOOST_CHECK_EQUAL(res[0], "testEmail@mail.ru");
 
 }
+
+
+
+BOOST_AUTO_TEST_SUITE_END()
+BOOST_AUTO_TEST_SUITE(PgMusics)
+
+
 
 BOOST_AUTO_TEST_CASE(PgMusicsCreateTest)
 {
@@ -77,6 +96,10 @@ BOOST_AUTO_TEST_CASE(PgMusicsCreateTest)
 	BOOST_TEST(true);
 }
 
+BOOST_AUTO_TEST_SUITE_END()
+BOOST_AUTO_TEST_SUITE(PgMusics)
+
+
 BOOST_AUTO_TEST_CASE(PgTablesGetMusicByAlbumTest)
 {
 	TestConnect conn("", "");
@@ -85,10 +108,14 @@ BOOST_AUTO_TEST_CASE(PgTablesGetMusicByAlbumTest)
 
 	vector<MusItem> res(repos.tabRepPtr->getMusByAlbum(6));
 
-	BOOST_TEST(res[0].name == "vgm321");
-	BOOST_TEST(res[1].name == "vgm322");
-	BOOST_TEST(res[2].name == "vgm323");
+	BOOST_CHECK_EQUAL(res[0].name, "vgm322");
+	BOOST_CHECK_EQUAL(res[1].name, "vgm323");
+	BOOST_CHECK_EQUAL(res[2].name, "vgm321");
 }
+
+BOOST_AUTO_TEST_SUITE_END()
+BOOST_AUTO_TEST_SUITE(PgTables)
+
 
 BOOST_AUTO_TEST_CASE(PgTablesGetMusicByArtistTest)
 {
@@ -97,17 +124,17 @@ BOOST_AUTO_TEST_CASE(PgTablesGetMusicByArtistTest)
 	Repositories repos(conn.getRepos());
 
 	vector<MusItem> res(repos.tabRepPtr->getMusByArtist("abc123@mail.ru"));
+	
 
-	BOOST_TEST(res[0].name == "vgm321");
-	BOOST_TEST(res[1].name == "vgm322");
-	BOOST_TEST(res[2].name == "vgm323");
-
-	BOOST_TEST(res[3].name == "vgm411");
-	BOOST_TEST(res[4].name == "vgm412");
-	BOOST_TEST(res[5].name == "vgm413");
-
-	BOOST_TEST(true);
+	BOOST_CHECK_EQUAL(res[0].name, "vgm322");
+	BOOST_CHECK_EQUAL(res[1].name, "vgm323");
+	BOOST_CHECK_EQUAL(res[2].name, "vgm411");
+								 
+	BOOST_CHECK_EQUAL(res[3].name, "vgm413");
+	BOOST_CHECK_EQUAL(res[4].name, "vgm321");
+	BOOST_CHECK_EQUAL(res[5].name, "vgm412");
 }
+
 
 BOOST_AUTO_TEST_CASE(PgTablesGetPlaylistsByUserTest)
 {
@@ -117,11 +144,10 @@ BOOST_AUTO_TEST_CASE(PgTablesGetPlaylistsByUserTest)
 
 	vector<PlstItem> res(repos.tabRepPtr->getPlaylistsByUser("abc123@mail.ru"));
 
-	BOOST_TEST(res[0].name == "vgp3");
-	BOOST_TEST(res[1].name == "vgp11");
-
-	BOOST_TEST(true);
+	BOOST_CHECK_EQUAL(res[0].name, "vgp3");
+	BOOST_CHECK_EQUAL(res[1].name, "vgp11");
 }
+
 
 BOOST_AUTO_TEST_CASE(PgTablesGetMusicByPlaylistTest)
 {
@@ -131,12 +157,14 @@ BOOST_AUTO_TEST_CASE(PgTablesGetMusicByPlaylistTest)
 
 	vector<MusItem> res(repos.tabRepPtr->getMusByPlaylist(6));
 
-	BOOST_TEST(res[0].name == "vgm111");
-	BOOST_TEST(res[1].name == "vgm123");
-	BOOST_TEST(res[2].name == "vgm322");
-
-	BOOST_TEST(true);
+	BOOST_CHECK_EQUAL(res[0].name, "vgm322");
+	BOOST_CHECK_EQUAL(res[1].name, "vgm123");
+	BOOST_CHECK_EQUAL(res[2].name, "vgm111");
 }
+
+BOOST_AUTO_TEST_SUITE_END()
+BOOST_AUTO_TEST_SUITE(PgPlaylists)
+
 
 BOOST_AUTO_TEST_CASE(PgPlaylistsTest)
 {
@@ -157,8 +185,8 @@ BOOST_AUTO_TEST_CASE(PgPlaylistsTest)
 	repos.plstRepPtr->aUpdate(MusItem(2, "", "", "", ""), res[i].id);
 	vector<MusItem> mres(repos.tabRepPtr->getMusByPlaylist(res[i].id));
 
-	BOOST_TEST(mres[0].id == 1);
-	BOOST_TEST(mres[1].id == 2);
+	BOOST_CHECK_EQUAL(mres[0].id, 1);
+	BOOST_CHECK_EQUAL(mres[1].id, 2);
 
 	repos.plstRepPtr->del(res[i].id);
 
@@ -167,4 +195,4 @@ BOOST_AUTO_TEST_CASE(PgPlaylistsTest)
 	BOOST_TEST(dres.size() == 0);
 }
 
-
+BOOST_AUTO_TEST_SUITE_END()

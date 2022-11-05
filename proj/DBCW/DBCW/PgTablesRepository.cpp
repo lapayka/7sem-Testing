@@ -9,7 +9,8 @@ std::vector<MusItem> PgTablesRepository::getMusByArtist(const string& id)
     std::string query("select m.id, m.name, m.duration, al.name as albumName, ar.name as artistName "
         "from MusComps m join Albums al on m.AlId = al.id "
         "join Artists ar on al.ArId = ar.email "
-        "where ar.email = '" + id + "';");
+        "where ar.email = '" + id + "'"
+        "order by m.audrate;");
 
     pgRes = PQexec(connPtr, query.c_str());
                             
@@ -29,7 +30,8 @@ std::vector<MusItem> PgTablesRepository::getMusByAlbum(int id)
     std::string query("select m.id, m.name, m.duration, al.name as albumName, ar.name as artistName "
         "from MusComps m join Albums al on m.AlId = al.id "
         "join Artists ar on al.ArId = ar.email "
-        "where al.id = " + to_string(id) + ";");
+        "where al.id = " + to_string(id) +
+        " order by m.audrate;");
 
     pgRes = PQexec(connPtr, query.c_str());
 
@@ -51,7 +53,8 @@ std::vector<MusItem> PgTablesRepository::getMusByPlaylist(int id)
                       "               join MusComps m on pc.MuId = m.id "
                       "               join Albums al on m.AlId = al.id "
                       "               join Artists ar on al.ArId = ar.email "
-                      "               where pl.id = " + to_string(id) + ";");
+                      "               where pl.id = " + to_string(id) + 
+                      "               order by m.audrate;");
 
     pgRes = PQexec(connPtr, query.c_str());
 

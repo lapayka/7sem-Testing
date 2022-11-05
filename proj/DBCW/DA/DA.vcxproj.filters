@@ -25,12 +25,6 @@
     <Filter Include="Repository\PgRepository">
       <UniqueIdentifier>{5fc782a5-8ea8-47be-90fb-eaf2ce4186ae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="LiteConnect">
-      <UniqueIdentifier>{d5b88a58-9ca9-42b6-a977-45338388b8b0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Repository\LtRepository">
-      <UniqueIdentifier>{addc1593-4b05-4b2d-840d-2f7c0b1cf81d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\DBCW\IAlbumsRepository.h">
@@ -92,30 +86,6 @@
     </ClInclude>
     <ClInclude Include="..\DBCW\Config.h">
       <Filter>Config</Filter>
-    </ClInclude>
-    <ClInclude Include="LiteConnect.h">
-      <Filter>LiteConnect</Filter>
-    </ClInclude>
-    <ClInclude Include="LtAlRepo.h">
-      <Filter>Repository\LtRepository</Filter>
-    </ClInclude>
-    <ClInclude Include="LtArRepo.h">
-      <Filter>Repository\LtRepository</Filter>
-    </ClInclude>
-    <ClInclude Include="LtGraphRepo.h">
-      <Filter>Repository\LtRepository</Filter>
-    </ClInclude>
-    <ClInclude Include="LtMusRepo.h">
-      <Filter>Repository\LtRepository</Filter>
-    </ClInclude>
-    <ClInclude Include="LtPlstRepo.h">
-      <Filter>Repository\LtRepository</Filter>
-    </ClInclude>
-    <ClInclude Include="LtTbRepo.h">
-      <Filter>Repository\LtRepository</Filter>
-    </ClInclude>
-    <ClInclude Include="LtUsRepo.h">
-      <Filter>Repository\LtRepository</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

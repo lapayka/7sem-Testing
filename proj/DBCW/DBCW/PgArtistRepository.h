@@ -19,7 +19,8 @@ public:
 	{
 		string query("Insert into ArtistRequest(usid, state, name) values('" + UsId + "', 'active', '" + name + "'); ");
 
-		PQexec(connect, query.c_str());
+		PGresult *res = PQexec(connect, query.c_str());
+		PQclear(res);
 	}
 
 	virtual vector<pair<string, string>> getAllRequests() override
@@ -64,11 +65,11 @@ public:
 	};
 	virtual void createArtist(const std::string& email, const std::string& password, const std::string& name) override
 	{
-		std::string query("BEGIN;"
+		std::string query(""
 			             "insert into artists(email, password, name) values ('" + email + "', '" + password + "', '" + name + "');"
-						 "update artistRequest set state = 'accepted' where usid = '" + email + "';"
-						 "COMMIT;");
-		PQexec(connect, query.c_str());
+						 "");
+		PGresult * res = PQexec(connect, query.c_str());
+		PQclear(res);
 	};
 };
 

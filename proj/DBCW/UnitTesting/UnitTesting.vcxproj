@@ -121,6 +121,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Program Files\PostgreSQL\14\include;C:\src\vcpkg\installed\x64-windows-static\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug UnitTests|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -128,6 +130,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgUseStatic>false</VcpkgUseStatic>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -179,6 +184,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(OutDir)DA.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug UnitTests|x64'">
@@ -211,42 +217,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\DBCW\ConConfig.cpp" />
-    <ClCompile Include="..\DBCW\Config.cpp" />
-    <ClCompile Include="..\DBCW\Facade.cpp" />
-    <ClCompile Include="..\DBCW\MusItem.cpp" />
-    <ClCompile Include="..\DBCW\PgAlbumRepository.cpp" />
-    <ClCompile Include="..\DBCW\PgMusRepository.cpp" />
-    <ClCompile Include="..\DBCW\PgPlaylistRepository.cpp" />
-    <ClCompile Include="..\DBCW\PgTablesRepository.cpp" />
     <ClCompile Include="RepoTests.cpp" />
     <ClCompile Include="TestConfig.cpp" />
     <ClCompile Include="TestConnect.cpp" />
-    <ClCompile Include="UnitTesting.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug UnitTests|x64'">true</ExcludedFromBuild>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\DBCW\AdminConnect.h" />
-    <ClInclude Include="..\DBCW\ArtistConnect.h" />
-    <ClInclude Include="..\DBCW\ConConfig.h" />
-    <ClInclude Include="..\DBCW\Config.h" />
-    <ClInclude Include="..\DBCW\Facade.h" />
-    <ClInclude Include="..\DBCW\IAlbumsRepository.h" />
-    <ClInclude Include="..\DBCW\IArtistRepository.h" />
-    <ClInclude Include="..\DBCW\IConnect.h" />
-    <ClInclude Include="..\DBCW\IMusRepository.h" />
-    <ClInclude Include="..\DBCW\IPgConnect.h" />
-    <ClInclude Include="..\DBCW\IPlaylistRepository.h" />
-    <ClInclude Include="..\DBCW\ITablesRepository.h" />
-    <ClInclude Include="..\DBCW\MusItem.h" />
-    <ClInclude Include="..\DBCW\PgAlbumRepository.h" />
-    <ClInclude Include="..\DBCW\PgArtistRepository.h" />
-    <ClInclude Include="..\DBCW\PgMusRepository.h" />
-    <ClInclude Include="..\DBCW\PgPlaylistRepository.h" />
-    <ClInclude Include="..\DBCW\PgTablesRepository.h" />
-    <ClInclude Include="..\DBCW\PlstItem.h" />
-    <ClInclude Include="..\DBCW\stUserConnect.h" />
     <ClInclude Include="TestConfig.h" />
     <ClInclude Include="TestConnect.h" />
   </ItemGroup>
@@ -254,9 +229,6 @@
     <ProjectReference Include="..\DBCW\DBCW.vcxproj">
       <Project>{19db03a7-5446-40e7-a0dd-a156145ad4dd}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\DBCW\packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

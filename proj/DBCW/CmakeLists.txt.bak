@@ -1,0 +1,19 @@
+function( print_local_src_files_to_file )
+	foreach( filetype "*.h" "*.cpp" "*.rc" )
+		file( GLOB_RECURSE AllSrc RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${filetype} )
+		foreach( f ${AllSrc} )
+			list( APPEND all_src_list "\t${f}\n" )
+		endforeach()	
+	endforeach( )
+	file( WRITE __all_src.txt ${all_src_list} )
+endfunction()
+
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
+
+include ( libs )
+
+
+add_subdirectory( DBCW )
+add_subdirectory( DA )
+add_subdirectory( Interface )
+add_subdirectory( Main )

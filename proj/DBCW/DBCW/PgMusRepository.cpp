@@ -11,7 +11,8 @@ std::vector<MusItem> PgMusRepository::getMusByName(const string &name)
         "from           MusComps m"
         "               join Albums al on m.AlId = al.id "
         "               join Artists ar on al.ArId = ar.email "
-        "               where m.name = '" + name + "';");
+        "               where m.name = '" + name + "'"
+        "               order by by m.audrate;" );
 
     pgRes = PQexec(connection, query.c_str());
 

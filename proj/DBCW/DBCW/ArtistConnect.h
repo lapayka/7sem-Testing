@@ -23,7 +23,6 @@ public:
         PQclear(res);
         if (tuples == 0)
         {
-            PQclear(res);
             throw LoginException(PQerrorMessage(connPtr));
         }
     };
