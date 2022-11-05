@@ -1,0 +1,17 @@
+/home/lapayka/study/3cbdcw/proj/DBCW/build/CMakeFiles/rebuild_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/CMakeFiles/edit_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/DBCW/CMakeFiles/rebuild_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/DBCW/CMakeFiles/edit_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/DBCW/CMakeFiles/DBCW.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/DA/CMakeFiles/rebuild_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/DA/CMakeFiles/edit_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/DA/CMakeFiles/DA.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/Interface/CMakeFiles/rebuild_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/Interface/CMakeFiles/edit_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/Interface/CMakeFiles/Interface.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/Main/CMakeFiles/rebuild_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/Main/CMakeFiles/edit_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/Main/CMakeFiles/Main.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/WebWrapper/CMakeFiles/rebuild_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/WebWrapper/CMakeFiles/edit_cache.dir
+/home/lapayka/study/3cbdcw/proj/DBCW/build/WebWrapper/CMakeFiles/WebWrapper.dir

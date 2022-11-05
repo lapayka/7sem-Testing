@@ -67,6 +67,7 @@ create table if not exists UC(
 	UsId varchar(50) REFERENCES Users(email),
 	MuId int REFERENCES MusComps (id),
 	audRate int,
+	sort int
 	
 	UNIQUE(UsId, MuId)
 );

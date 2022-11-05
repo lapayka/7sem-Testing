@@ -1,0 +1,77 @@
+[
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/DBCW",
+  "command": "/usr/bin/g++    -O3 -DNDEBUG   -o CMakeFiles/DBCW.dir/Config.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/DBCW/Config.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/DBCW/Config.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/DBCW",
+  "command": "/usr/bin/g++    -O3 -DNDEBUG   -o CMakeFiles/DBCW.dir/Facade.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/DBCW/Facade.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/DBCW/Facade.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/DBCW",
+  "command": "/usr/bin/g++    -O3 -DNDEBUG   -o CMakeFiles/DBCW.dir/LoginException.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/DBCW/LoginException.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/DBCW/LoginException.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/DBCW",
+  "command": "/usr/bin/g++    -O3 -DNDEBUG   -o CMakeFiles/DBCW.dir/MusItem.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/DBCW/MusItem.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/DBCW/MusItem.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/DA",
+  "command": "/usr/bin/g++   -I/home/lapayka/study/3cbdcw/proj/DBCW/DA/../DBCW -isystem /usr/include/postgresql  -O3 -DNDEBUG   -o CMakeFiles/DA.dir/ConConfig.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/DA/ConConfig.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/DA/ConConfig.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/DA",
+  "command": "/usr/bin/g++   -I/home/lapayka/study/3cbdcw/proj/DBCW/DA/../DBCW -isystem /usr/include/postgresql  -O3 -DNDEBUG   -o CMakeFiles/DA.dir/PgAlbumRepository.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/DA/PgAlbumRepository.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/DA/PgAlbumRepository.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/DA",
+  "command": "/usr/bin/g++   -I/home/lapayka/study/3cbdcw/proj/DBCW/DA/../DBCW -isystem /usr/include/postgresql  -O3 -DNDEBUG   -o CMakeFiles/DA.dir/PgMusRepository.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/DA/PgMusRepository.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/DA/PgMusRepository.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/DA",
+  "command": "/usr/bin/g++   -I/home/lapayka/study/3cbdcw/proj/DBCW/DA/../DBCW -isystem /usr/include/postgresql  -O3 -DNDEBUG   -o CMakeFiles/DA.dir/PgPlaylistRepository.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/DA/PgPlaylistRepository.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/DA/PgPlaylistRepository.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/DA",
+  "command": "/usr/bin/g++   -I/home/lapayka/study/3cbdcw/proj/DBCW/DA/../DBCW -isystem /usr/include/postgresql  -O3 -DNDEBUG   -o CMakeFiles/DA.dir/PgTablesRepository.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/DA/PgTablesRepository.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/DA/PgTablesRepository.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/Interface",
+  "command": "/usr/bin/g++   -I/home/lapayka/study/3cbdcw/proj/DBCW/Interface/../DBCW  -O3 -DNDEBUG   -o CMakeFiles/Interface.dir/UserInterface.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/Interface/UserInterface.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/Interface/UserInterface.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/Interface",
+  "command": "/usr/bin/g++   -I/home/lapayka/study/3cbdcw/proj/DBCW/Interface/../DBCW  -O3 -DNDEBUG   -o CMakeFiles/Interface.dir/View.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/Interface/View.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/Interface/View.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/Main",
+  "command": "/usr/bin/g++  -DOATPP_SWAGGER_RES_PATH=\\\"/usr/local/include/oatpp-1.3.0//bin/oatpp-swagger/res\\\" -DPATH_TO_CONFIG=\\\"/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/AdminPas.txt\\\" -I/home/lapayka/study/3cbdcw/proj/DBCW/Main/../DA -I/home/lapayka/study/3cbdcw/proj/DBCW/Main/../Interface -I/home/lapayka/study/3cbdcw/proj/DBCW/Main/../DBCW -I/home/lapayka/study/3cbdcw/proj/DBCW/Main/../WebWrapper -I/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/../DBCW -isystem /usr/include/postgresql -isystem /usr/local/include/oatpp-1.3.0/oatpp -isystem /usr/local/include/oatpp-1.3.0/oatpp-swagger  -O3 -DNDEBUG   -o CMakeFiles/Main.dir/ConfigFactory.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/Main/ConfigFactory.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/Main/ConfigFactory.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/Main",
+  "command": "/usr/bin/g++  -DOATPP_SWAGGER_RES_PATH=\\\"/usr/local/include/oatpp-1.3.0//bin/oatpp-swagger/res\\\" -DPATH_TO_CONFIG=\\\"/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/AdminPas.txt\\\" -I/home/lapayka/study/3cbdcw/proj/DBCW/Main/../DA -I/home/lapayka/study/3cbdcw/proj/DBCW/Main/../Interface -I/home/lapayka/study/3cbdcw/proj/DBCW/Main/../DBCW -I/home/lapayka/study/3cbdcw/proj/DBCW/Main/../WebWrapper -I/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/../DBCW -isystem /usr/include/postgresql -isystem /usr/local/include/oatpp-1.3.0/oatpp -isystem /usr/local/include/oatpp-1.3.0/oatpp-swagger  -O3 -DNDEBUG   -o CMakeFiles/Main.dir/DBCW.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/Main/DBCW.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/Main/DBCW.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/WebWrapper",
+  "command": "/usr/bin/g++  -DOATPP_SWAGGER_RES_PATH=\\\"/usr/local/include/oatpp-1.3.0//bin/oatpp-swagger/res\\\" -DPATH_TO_CONFIG=\\\"/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/AdminPas.txt\\\" -I/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/../Interface -I/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/../DBCW -isystem /usr/local/include/oatpp-1.3.0/oatpp -isystem /usr/local/include/oatpp-1.3.0/oatpp-swagger  -O3 -DNDEBUG   -o CMakeFiles/WebWrapper.dir/jwtWrapper.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/jwtWrapper.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/jwtWrapper.cpp"
+},
+{
+  "directory": "/home/lapayka/study/3cbdcw/proj/DBCW/build/WebWrapper",
+  "command": "/usr/bin/g++  -DOATPP_SWAGGER_RES_PATH=\\\"/usr/local/include/oatpp-1.3.0//bin/oatpp-swagger/res\\\" -DPATH_TO_CONFIG=\\\"/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/AdminPas.txt\\\" -I/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/../Interface -I/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/../DBCW -isystem /usr/local/include/oatpp-1.3.0/oatpp -isystem /usr/local/include/oatpp-1.3.0/oatpp-swagger  -O3 -DNDEBUG   -o CMakeFiles/WebWrapper.dir/WebWrapper.cpp.o -c /home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/WebWrapper.cpp",
+  "file": "/home/lapayka/study/3cbdcw/proj/DBCW/WebWrapper/WebWrapper.cpp"
+}
+]

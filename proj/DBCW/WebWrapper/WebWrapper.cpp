@@ -4,12 +4,14 @@ shared_ptr<map<Role, shared_ptr<Facade>>> ServerController::mfac = (shared_ptr<m
 shared_ptr<map<int, Role>> ServerController::mUsers = (shared_ptr<map<int, Role>>(new map<int, Role>()));
 shared_ptr<JWT> ServerController::m_jwt = (shared_ptr<JWT>(new JWT()));
 int ServerController::cur_user = 0;
+int ServerController::response_count = 0;
 
 void WebWrapper::work()
 {
     oatpp::base::Environment::init();
     ServerSettings components; // Create scope Environment components
     /* create ApiControllers and add endpoints to router */
+
     auto router = components.httpRouter.getObject();
 
     router->addController(oatpp::swagger::AsyncController::createShared(ServerController::createShared()->getEndpoints()));

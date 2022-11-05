@@ -1,0 +1,2 @@
+/usr/bin/ar qc libWebWrapper.a  CMakeFiles/WebWrapper.dir/jwtWrapper.cpp.o CMakeFiles/WebWrapper.dir/WebWrapper.cpp.o
+/usr/bin/ranlib libWebWrapper.a

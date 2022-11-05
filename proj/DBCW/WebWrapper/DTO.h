@@ -6,6 +6,12 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
+class PlstOrderDto : public oatpp::DTO
+{
+    DTO_INIT(PlstOrderDto, DTO)
+    DTO_FIELD(oatpp::Vector<oatpp::Int32>, musIds);
+};
+
 class MusicCompDto : public oatpp::DTO 
 {
     DTO_INIT(MusicCompDto, DTO)
@@ -20,7 +26,7 @@ class MusicCompsDto : public oatpp::DTO
 {
     DTO_INIT(MusicCompsDto, DTO)
 
-    DTO_FIELD(Vector<Object<MusicCompDto>>, MusicCompositions);
+    DTO_FIELD(oatpp::Vector<Object<MusicCompDto>>, MusicCompositions);
 };
 
 class PlaylistDTO : public oatpp::DTO

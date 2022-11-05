@@ -51,7 +51,8 @@ std::vector<MusItem> PgTablesRepository::getMusByPlaylist(int id)
                       "               join MusComps m on pc.MuId = m.id "
                       "               join Albums al on m.AlId = al.id "
                       "               join Artists ar on al.ArId = ar.email "
-                      "               where pl.id = " + to_string(id) + ";");
+                      "               where pl.id = " + to_string(id) +
+                      "               order by sort;");
 
     pgRes = PQexec(connPtr, query.c_str());
 

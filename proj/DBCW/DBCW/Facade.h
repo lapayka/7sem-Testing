@@ -34,6 +34,9 @@ public:
 	void createPlaylist(const string& userId, const string& name) { repos.plstRepPtr->create(name, userId); };
 	void updatePlaylist(int id, const MusItem& item) {repos.plstRepPtr->aUpdate(item, id); }
 	void deletePlaylist(int id) { repos.plstRepPtr->del(id); };
+	void setPlstOrder(int id, const vector<int> & orders) { repos.plstRepPtr->setOrder(id, orders); }
+
+	void deleteMusFromPlaylist(int mid, int pid) { repos.plstRepPtr->delCompFromPlst(mid, pid); }
 
 
 	void createAlbum(const string& id, const string& name, const vector<MusItem>& items) { repos.albRepPtr->create(items, name, id); };

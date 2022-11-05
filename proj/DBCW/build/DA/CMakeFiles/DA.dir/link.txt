@@ -1,0 +1,2 @@
+/usr/bin/ar qc libDA.a  CMakeFiles/DA.dir/ConConfig.cpp.o CMakeFiles/DA.dir/PgAlbumRepository.cpp.o CMakeFiles/DA.dir/PgMusRepository.cpp.o CMakeFiles/DA.dir/PgPlaylistRepository.cpp.o CMakeFiles/DA.dir/PgTablesRepository.cpp.o
+/usr/bin/ranlib libDA.a

@@ -15,14 +15,14 @@
 
 #include "oatpp/web/server/interceptor/AllowCorsGlobal.hpp"
 
-
+extern int port;
 /**
  *  Class which creates and holds Application components and registers components in oatpp::base::Environment
  *  Order of components initialization is from top to bottom
  */
 class ServerSettings {
 public:
-
+    
     /**
      * Create Async Executor
      */
@@ -39,7 +39,7 @@ public:
      */
     OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, serverConnectionProvider)([] {
         /* non_blocking connections should be used with AsyncHttpConnectionHandler for AsyncIO */
-        return oatpp::network::tcp::server::ConnectionProvider::createShared({"0.0.0.0", 8000, oatpp::network::Address::IP_4});
+        return oatpp::network::tcp::server::ConnectionProvider::createShared({"0.0.0.0", port, oatpp::network::Address::IP_4});
     }());
 
 
@@ -95,7 +95,7 @@ public:
                 .setDescription("CRUD API")
                 .setVersion("1.0")
                 .setContactName("Lapaev Denis")
-                .addServer("http://localhost:8000", "server on localhost")
+                .addServer("http://localhost:" + to_string(port), "server on localhost")
                 .addServer("http://localhost:80", "nginx proxy");
 
         return builder.build();

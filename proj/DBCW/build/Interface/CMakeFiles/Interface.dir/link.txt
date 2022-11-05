@@ -1,0 +1,2 @@
+/usr/bin/ar qc libInterface.a  CMakeFiles/Interface.dir/UserInterface.cpp.o CMakeFiles/Interface.dir/View.cpp.o
+/usr/bin/ranlib libInterface.a

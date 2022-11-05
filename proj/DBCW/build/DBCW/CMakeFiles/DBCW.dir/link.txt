@@ -1,0 +1,2 @@
+/usr/bin/ar qc libDBCW.a  CMakeFiles/DBCW.dir/Config.cpp.o CMakeFiles/DBCW.dir/Facade.cpp.o CMakeFiles/DBCW.dir/LoginException.cpp.o CMakeFiles/DBCW.dir/MusItem.cpp.o
+/usr/bin/ranlib libDBCW.a

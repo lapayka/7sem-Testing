@@ -11,5 +11,9 @@ public:
 	virtual void create(const string& name, const string& user) override;
 	virtual void del(int id) override;
 	virtual void aUpdate(const MusItem& item, int id) override;
+
+	virtual void delCompFromPlst(int mid, int pid) override;
+
+	virtual void setOrder(int id, const vector<int> & orders) override;
 };
 
