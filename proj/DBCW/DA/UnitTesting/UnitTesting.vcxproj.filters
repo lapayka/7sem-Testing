@@ -5,25 +5,11 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Connections">
       <UniqueIdentifier>{7ba9ca45-4ea1-4c83-91ce-fe1eee5d5c67}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Common">
-      <UniqueIdentifier>{63f51737-140d-450c-8b4b-631fba4545a0}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="UnitTesting.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TestConfig.cpp">
       <Filter>Connections</Filter>
     </ClCompile>
@@ -33,30 +19,6 @@
     <ClCompile Include="RepoTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\DBCW\ConConfig.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\DBCW\Config.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\DBCW\Facade.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\DBCW\MusItem.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\DBCW\PgAlbumRepository.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\DBCW\PgMusRepository.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\DBCW\PgPlaylistRepository.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\DBCW\PgTablesRepository.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestConfig.h">
@@ -65,70 +27,5 @@
     <ClInclude Include="TestConnect.h">
       <Filter>Connections</Filter>
     </ClInclude>
-    <ClInclude Include="..\DBCW\AdminConnect.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\ArtistConnect.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\ConConfig.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\Config.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\Facade.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\IAlbumsRepository.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\IArtistRepository.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\IConnect.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\IMusRepository.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\IPgConnect.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\IPlaylistRepository.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\ITablesRepository.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\MusItem.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\PgAlbumRepository.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\PgArtistRepository.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\PgMusRepository.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\PgPlaylistRepository.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\PgTablesRepository.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\PlstItem.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DBCW\stUserConnect.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\DBCW\packages.config">
-      <Filter>Common</Filter>
-    </None>
   </ItemGroup>
 </Project>

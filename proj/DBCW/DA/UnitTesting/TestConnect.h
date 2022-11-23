@@ -1,5 +1,5 @@
 #pragma once
-#include "../DBCW/IPgConnect.h"
+#include "DBCW/IPgConnect.h"
 class TestConnect :
     public IPgConnect
 {
