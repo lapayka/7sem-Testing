@@ -89,7 +89,8 @@ std::vector<MusItem> PgTablesRepository::getMusTableFromRes(PGresult* pgRes)
 {
     std::vector<MusItem> result;
 
-    for (int i = 0; i < PQntuples(pgRes); i++)
+    auto max = PQntuples(pgRes);
+    for (int i = 0; i < max; i++)
     {
         int i_num = PQfnumber(pgRes, "id");
         int n_num = PQfnumber(pgRes, "name");

@@ -21,21 +21,21 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{012e285b-fac7-4829-9199-9b2caa8ce3f8}</ProjectGuid>
-    <RootNamespace>DA</RootNamespace>
+    <ProjectGuid>{61c288b2-f517-4561-ae0b-77e3909e6f39}</ProjectGuid>
+    <RootNamespace>libpqPLUG</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -46,9 +46,9 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -78,14 +78,10 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath)</IncludePath>
+    <TargetName>libpq</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Program Files\PostgreSQL\14\include;$(IncludePath)</IncludePath>
-  </PropertyGroup>
-  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <VcpkgUseStatic>false</VcpkgUseStatic>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -121,12 +117,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)libpqPLUG/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(ProjectDir)libs\libpq.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -146,34 +140,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\DBCW\AdminConnect.h" />
-    <ClInclude Include="..\DBCW\ArtistConnect.h" />
-    <ClInclude Include="..\DBCW\ConConfig.h" />
-    <ClInclude Include="..\DBCW\Config.h" />
-    <ClInclude Include="..\DBCW\IAlbumsRepository.h" />
-    <ClInclude Include="..\DBCW\IArtistRepository.h" />
-    <ClInclude Include="..\DBCW\IGraphRepo.h" />
-    <ClInclude Include="..\DBCW\IMusRepository.h" />
-    <ClInclude Include="..\DBCW\IPgConnect.h" />
-    <ClInclude Include="..\DBCW\IPlaylistRepository.h" />
-    <ClInclude Include="..\DBCW\ITablesRepository.h" />
-    <ClInclude Include="..\DBCW\IUserRepo.h" />
-    <ClInclude Include="..\DBCW\PgAlbumRepository.h" />
-    <ClInclude Include="..\DBCW\PgArtistRepository.h" />
-    <ClInclude Include="..\DBCW\PgGraphRepository.h" />
-    <ClInclude Include="..\DBCW\PgMusRepository.h" />
-    <ClInclude Include="..\DBCW\PgPlaylistRepository.h" />
-    <ClInclude Include="..\DBCW\PgTablesRepository.h" />
-    <ClInclude Include="..\DBCW\PgUserRepo.h" />
-    <ClInclude Include="..\DBCW\stUserConnect.h" />
+    <ClCompile Include="libpq-fe.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\DBCW\ConConfig.cpp" />
-    <ClCompile Include="..\DBCW\Config.cpp" />
-    <ClCompile Include="..\DBCW\PgAlbumRepository.cpp" />
-    <ClCompile Include="..\DBCW\PgMusRepository.cpp" />
-    <ClCompile Include="..\DBCW\PgPlaylistRepository.cpp" />
-    <ClCompile Include="..\DBCW\PgTablesRepository.cpp" />
+    <ClInclude Include="libpq-fe.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

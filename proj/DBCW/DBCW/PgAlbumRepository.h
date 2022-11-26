@@ -48,7 +48,7 @@ public:
             int n_num = PQfnumber(pgRes, "id");
             char* name = PQgetvalue(pgRes, i, n_num);
 
-            result.push_back(stoi(name));
+            result.push_back(atoi(name));
         }
 
         PQclear(pgRes);

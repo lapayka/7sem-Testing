@@ -25,7 +25,7 @@ public:
                                                 shared_ptr<IGraphRepo>(new PgGraphRepository(connPtr)),
                                                     shared_ptr<IUserRepo>(new PgUserRepo(connPtr)));
     }
-    virtual ~IPgConnect() { PQfinish(connPtr); };
+    virtual ~IPgConnect() { /*PQfinish(connPtr);*/ };
 protected:
     PGconn * connPtr;
 };
