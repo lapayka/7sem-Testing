@@ -9,7 +9,7 @@ build:
   script:
     - cd proj/DBCW
     - cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake
-    - push build && make && popd
+    - pushd build && make && popd
     
   cache:
     - key:
