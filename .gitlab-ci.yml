@@ -4,28 +4,18 @@ stages:
   - build
   - test
 
+default:
+  cache:
+    paths:
+      - proj/DBCW/64/bin
+
+
 build:
   stage: build
   script:
     - cd proj/DBCW
     - cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake
     - pushd build && make && popd
-    
-  cache:
-    - key:
-        files:
-          - DA_ut
-      paths:
-        - 64/bin
-
-test:
-  stage: test
-  needs: 
-    - build
-
-  script:
     - ls
-    - cd proj/DBCW
-    - ls
-    - cd proj/DBCW/64/bin
+    - cd 64/bin && ls
     - ./DA_ut
