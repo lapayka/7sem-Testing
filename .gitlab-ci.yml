@@ -10,6 +10,8 @@ build:
     - cd proj/DBCW
     - cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake
     - pushd build && make && popd
+    - ls
+    - cd 64/bin && ls
     
   cache:
     - key:
@@ -27,5 +29,5 @@ test:
     - ls
     - cd proj/DBCW
     - ls
-    - cd proj/DBCW/64/bin
+    - cd 64/bin
     - ./DA_ut
