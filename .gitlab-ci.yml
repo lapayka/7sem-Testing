@@ -7,7 +7,7 @@ stages:
 build:
   stage: build
   script: 
-    - cd 3cbdcw/proj/DBCW
+    - cd /builds/lapayka/3cbdcw/.git/proj/DBCW
     - cmake -B build
     - cd build && make
 
