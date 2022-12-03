@@ -18,7 +18,7 @@ target_include_directories( ${PROJECT_NAME} PRIVATE ../DA ../Interface ../DBCW .
 
 target_link_libraries( ${PROJECT_NAME}
     PUBLIC
-        libpq
+        PostgreSQL::PostgreSQL
         DA
         DBCW
         Interface

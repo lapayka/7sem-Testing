@@ -18,3 +18,5 @@ target_link_libraries( ${PROJECT_NAME}
         libpq_MOCK
         DA
 )
+
+add_test( ${PROJECT_NAME} COMMAND $<TARGET_FILE:${PROJECT_NAME}>)
