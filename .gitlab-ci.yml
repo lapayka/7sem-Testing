@@ -9,7 +9,13 @@ build:
   script:
     - cd proj/DBCW
     - cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake
-    - cd build && make
+    - push build && make && popd
+  cache:
+    - key:
+      files:
+        - DA_ut
+      paths:
+        - 64/bin
 
 test:
   stage: test
@@ -17,6 +23,5 @@ test:
     - build
 
   script:
-    - ls
-    - proj/DBCW/64/bin/Release
+    - cd ENVIRONMENT
     - ./DA_ut
