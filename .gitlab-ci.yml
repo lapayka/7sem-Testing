@@ -6,7 +6,9 @@ stages:
 
 build:
   stage: build
-  script: 
+  script:
+    - cd ..
+    - ls
     - cd proj/DBCW
     - cmake -B build
     - cd build && make
