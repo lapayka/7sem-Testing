@@ -177,12 +177,12 @@ typedef unsigned int Oid;
 	 */
 	typedef struct pg_result {
 		pg_result(const char* album) {
-			strcpy_s(alb, album);
+			strcpy(alb, album);
 			if(strstr(album, "vga11")) {
 				_col = 1;
 				_tup = 2;
 				_step = 3;
-				strcpy_s(_req, "1");
+				strcpy(_req, "1");
 			}
 			else if(strstr(album, "testalbum")) {
 				if(global < 2) {
@@ -194,10 +194,10 @@ typedef unsigned int Oid;
 					_tup = 0;
 			}
 			else if (strstr(album, "vgg")) {
-				strcpy_s(_req, "abc1@mail.ru");
+				strcpy(_req, "abc1@mail.ru");
 			}
 			else if (strstr(album, "CreateTestArtist")) {
-				strcpy_s(_req, "testEmail@mail.ru");
+				strcpy(_req, "testEmail@mail.ru");
 			}
 			else if (strstr(album, "6")) {
 				++six;
