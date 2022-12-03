@@ -7,10 +7,8 @@ stages:
 build:
   stage: build
   script:
-    - cd /opt/vcpkg/scripts/buildsystems
-    - ls
     - cd proj/DBCW
-    - cmake -B build
+    - cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake
     - cd build && make
 
 test:
