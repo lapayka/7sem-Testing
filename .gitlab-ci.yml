@@ -1,8 +1,8 @@
 image: lapaev/image
 
 stages:
-  -build
-  -test
+  - build
+  - test
 
 build:
   stage: build
