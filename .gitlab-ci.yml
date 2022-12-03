@@ -7,8 +7,7 @@ stages:
 build:
   stage: build
   script:
-    - cd /home
-    - ls -R
+    - ls vcpkg --help
     - cd proj/DBCW
     - cmake -B build
     - cd build && make
