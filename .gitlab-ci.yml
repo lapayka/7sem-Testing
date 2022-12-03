@@ -16,4 +16,7 @@ build:
     - cd proj/DBCW
     - cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake -Wno-dev
     - pushd build && make && popd
-    - sudo scripts/run_units.sh
+    - 64/bin/DA_ut
+    - 64/bin/DBCW_ut
+    - 64/bin/DA_int
+    - 64/bin/DBCW_int

@@ -10,8 +10,8 @@ public:
 
     TestConnect(const string& email, const string& pass)
     {
-        //string query("dbname = test user = postgres password = 4Nikarulez_7");
-        //connPtr = PQconnectdb(query.c_str());
+        string query("dbname = test user = postgres password = 4Nikarulez_7");
+        connPtr = PQconnectdb(query.c_str());
         //
         //if (PQstatus(connPtr) != CONNECTION_OK)
         //{
@@ -22,7 +22,7 @@ public:
 
     virtual Repositories getRepos() override;
 
-    virtual ~TestConnect() = default;
+    virtual ~TestConnect() { PQfinish(connPtr); };
 
 private:
     PGconn* connPtr = nullptr;
