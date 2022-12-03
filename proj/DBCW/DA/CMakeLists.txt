@@ -1,4 +1,5 @@
 add_subdirectory( UnitTesting )
+add_subdirectory( IntegrationTesting )
 
 set ( PROJECT_NAME DA )
 

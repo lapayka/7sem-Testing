@@ -1,4 +1,5 @@
 add_subdirectory( DBCW_ut )
+add_subdirectory( IntegrationTesting )
 
 set ( PROJECT_NAME DBCW )
 
