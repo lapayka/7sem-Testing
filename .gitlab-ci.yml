@@ -4,6 +4,12 @@ stages:
   - build
   - test
 
+default:
+  cache:
+    path:
+      - proj/DBCW/64/bin
+
+
 build:
   stage: build
   script:
@@ -12,13 +18,6 @@ build:
     - pushd build && make && popd
     - ls
     - cd 64/bin && ls
-
-  cache:
-      key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
-      paths:
-        - proj/DBCW/64/bin
-    
-  
 
 test:
   stage: test
