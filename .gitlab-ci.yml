@@ -3,6 +3,11 @@ image: lapaev/image
 stages:
   - build
   - test
+  
+variables:
+    POSTGRES_DB: "test"
+    POSTGRES_USER: "postgres"
+    POSTGRES_PASSWORD: "4Nikarulez_7"
 
 default:
   cache:
@@ -14,21 +19,8 @@ build:
   stage: build
   
   services:
-    - postgres:
-        image: postgres:latest
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 4Nikarulez_7
-
-        ports:
-          - 5432:5432
-
-        # set health checks to wait until postgres has started
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+    - name: postgres:latest:
+        
   
   script:
     - cd proj/DBCW
