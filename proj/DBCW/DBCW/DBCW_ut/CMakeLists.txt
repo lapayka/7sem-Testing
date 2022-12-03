@@ -1,12 +1,15 @@
-set (PROJECT_NAME DBCW_ut)
-project ( ${PROJECT_NAME} CXX )
+set( PROJECT_NAME DBCW_ut )
 
-add_executable( ${PROJECT_NAME} Test.cpp )
+add_executable( ${PROJECT_NAME} )
 
-target_link_libraries( ${PROJECT_NAME} 
+target_sources( ${PROJECT_NAME} 
     PRIVATE
-        DBCW        
+        Test.cpp
+        mocks/ConfigMock.cpp
 )
 
-enable_testing()
-add_test( NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME} )
+target_link_libraries( ${PROJECT_NAME}
+    PRIVATE
+        DBCW
+        ${BoostLibraries}
+)

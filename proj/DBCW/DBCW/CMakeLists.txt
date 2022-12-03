@@ -1,3 +1,5 @@
+add_subdirectory( DBCW_ut )
+
 set ( PROJECT_NAME DBCW )
 
 project ( ${PROJECT_NAME} CXX )

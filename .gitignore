@@ -9,7 +9,7 @@
 
 *.docx
 
-build/*
+*build*
 
 # User-specific files
 *.rsuser
