@@ -14,7 +14,7 @@ build:
   stage: build
   
   services:
-      postgres:
+    - postgres:
         image: postgres:latest
         env:
           POSTGRES_USER: postgres
