@@ -44,67 +44,67 @@ char* PQgetvalue(const PGresult* res, int tup_num, int field_num) {
 	}
 	if (strstr(res->alb, "6")) {
 		if (tup_num == 0 && field_num == 41) {
-			strcpy_s(res->_req, !six ? "vgm322" : "vgm322");
+			strcpy(res->_req, !six ? "vgm322" : "vgm322");
 			return res->_req;
 		}
 		if (tup_num == 1 && field_num == 41) {
-			strcpy_s(res->_req, !six ? "vgm323" : "vgm123");
+			strcpy(res->_req, !six ? "vgm323" : "vgm123");
 			return res->_req;
 		}
 		if (tup_num == 2 && field_num == 41) {
-			strcpy_s(res->_req, !six ? "vgm321" : "vgm111");
+			strcpy(res->_req, !six ? "vgm321" : "vgm111");
 			return res->_req;
 		}
 	}
 	if (strstr(res->alb, "abc123@mail.ru") && res->_tup == 6) {
 		if (tup_num == 0 && field_num == 41) {
-			strcpy_s(res->_req, "vgm322");
+			strcpy(res->_req, "vgm322");
 			return res->_req;
 		}
 		if (tup_num == 1 && field_num == 41) {
-			strcpy_s(res->_req, "vgm323");
+			strcpy(res->_req, "vgm323");
 			return res->_req;
 		}
 		if (tup_num == 2 && field_num == 41) {
-			strcpy_s(res->_req, "vgm411");
+			strcpy(res->_req, "vgm411");
 			return res->_req;
 		}
 		if (tup_num == 3 && field_num == 41) {
-			strcpy_s(res->_req, "vgm413");
+			strcpy(res->_req, "vgm413");
 			return res->_req;
 		}
 		if (tup_num == 4 && field_num == 41) {
-			strcpy_s(res->_req, "vgm321");
+			strcpy(res->_req, "vgm321");
 			return res->_req;
 		}
 		if (tup_num == 5 && field_num == 41) {
-			strcpy_s(res->_req, "vgm412");
+			strcpy(res->_req, "vgm412");
 			return res->_req;
 		}
 	}
 	if (strstr(res->alb, "abc123@mail.ru") && res->_tup == 2) {
 		if (tup_num == 0 && field_num == 41) {
-			strcpy_s(res->_req, "vgp3");
+			strcpy(res->_req, "vgp3");
 			return res->_req;
 		}
 		if (tup_num == 1 && field_num == 41) {
-			strcpy_s(res->_req, "vgp11");
+			strcpy(res->_req, "vgp11");
 			return res->_req;
 		}
 	}
 	if (strstr(res->alb, "abc123@mail.ru") && res->_tup == 1) {
 		if (tup_num == 0 && field_num == 40) {
-			strcpy_s(res->_req, "70");
+			strcpy(res->_req, "70");
 			return res->_req;
 		}
 	}
 	if (strstr(res->alb, "70") && res->_tup == 2) {
 		if (tup_num == 0 && field_num == 40) {
-			strcpy_s(res->_req, "1");
+			strcpy(res->_req, "1");
 			return res->_req;
 		}
 		if (tup_num == 1 && field_num == 40) {
-			strcpy_s(res->_req, "2");
+			strcpy(res->_req, "2");
 			return res->_req;
 		}
 	}	
