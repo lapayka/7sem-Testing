@@ -8,6 +8,8 @@ target_sources( ${PROJECT_NAME}
         mocks/ConfigMock.cpp
 )
 
+target_include_directories( ${PROJECT_NAME} PRIVATE ${Boost_INCLUDE_DIRS} )
+
 target_link_libraries( ${PROJECT_NAME}
     PRIVATE
         DBCW

@@ -14,6 +14,6 @@ build:
   stage: build
   script:
     - cd proj/DBCW
-    - cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake
+    - cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake -Wno-dev
     - pushd build && make && popd
     - scripts/run_units.sh
