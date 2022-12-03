@@ -9,17 +9,11 @@ variables:
     POSTGRES_USER: "postgres"
     POSTGRES_PASSWORD: "4Nikarulez_7"
 
-default:
-  cache:
-    paths:
-      - proj/DBCW/64/bin
-
-
 build:
   stage: build
   
   services:
-    - name: postgres:latest:
+    - name: postgres:latest
         
   
   script:
