@@ -14,11 +14,7 @@ build:
     - cd 64/bin && ls
     
   cache:
-    - key:
-        files:
-          - DA_ut
-      paths:
-        - 64/bin
+    key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
 
 test:
   stage: test
