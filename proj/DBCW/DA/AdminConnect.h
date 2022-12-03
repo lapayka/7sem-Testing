@@ -8,7 +8,7 @@ class AdminConnect :
 public:
     AdminConnect(const string& email, const string& pass)
     {
-        string query("dbname = postgres user = postgres password = " + pass);
+        string query("dbname = test user = postgres password = " + pass);
         connPtr = PQconnectdb(query.c_str());
 
         if (PQstatus(connPtr) != CONNECTION_OK)

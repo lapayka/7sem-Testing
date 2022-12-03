@@ -9,15 +9,15 @@ class stUserConnect :
 public:
     stUserConnect(const string& email, const string& pass)
     {
-        char connParameters[] = "dbname = postgres user = stock_user password = stock_user";
-        connPtr = PQconnectdb(connParameters);
+        string connParameters = "dbname = test user = postgres password = " + pass;
+        connPtr = PQconnectdb(connParameters.c_str());
 
         if (PQstatus(connPtr) != CONNECTION_OK)
         {
             throw ConnectException(PQerrorMessage(connPtr));
         }
 
-        std::string query("select * from users where email = '" + email + "' and password = '" + pass + "';");
+        std::string query("select * from users where email = '" + email + "';");
         PGresult* res = PQexec(connPtr, query.c_str());
 
         int tuples = PQntuples(res);

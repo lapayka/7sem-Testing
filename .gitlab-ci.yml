@@ -12,6 +12,24 @@ default:
 
 build:
   stage: build
+  
+  services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 4Nikarulez_7
+
+        ports:
+          - 5432:5432
+
+        # set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+  
   script:
     - cd proj/DBCW
     - cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake -Wno-dev
