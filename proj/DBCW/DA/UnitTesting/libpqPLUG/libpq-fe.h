@@ -12,6 +12,8 @@
  *-------------------------------------------------------------------------
  */
 
+#include <string>
+
 #ifndef LIBPQ_FE_H
 #define LIBPQ_FE_H
 
@@ -231,7 +233,8 @@ typedef unsigned int Oid;
 			if (first)
 				_col += _step;
 			first = true;
-			_itoa_s(_col, _req, 128, 10);
+			std::string buf(std::to_string(_col)); 
+			strcpy(_req, buf.c_str());
 			return _req;
 		}
 
