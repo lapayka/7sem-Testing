@@ -24,5 +24,8 @@ test:
     - build
 
   script:
+    - ls
+    - cd proj/DBCW
+    - ls
     - cd proj/DBCW/64/bin
     - ./DA_ut
