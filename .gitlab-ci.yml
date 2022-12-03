@@ -13,8 +13,8 @@ build:
     
   cache:
     - key:
-      files:
-        - DA_ut
+        files:
+          - DA_ut
       paths:
         - 64/bin
 
