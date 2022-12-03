@@ -5,7 +5,8 @@ stages:
   - test
 
 build:
-  stage: build
+  stage: 
+    - build
   script: 
     - cd 3cbdcw/proj/DBCW
     - cmake -B build
