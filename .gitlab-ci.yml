@@ -6,7 +6,7 @@ stages:
 
 default:
   cache:
-    path:
+    paths:
       - proj/DBCW/64/bin
 
 
