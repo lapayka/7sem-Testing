@@ -17,5 +17,6 @@ test:
     - build
 
   script:
-    - cd 3cbdcw/proj/DBCW/64/bin/Release
+    - ls
+    - proj/DBCW/64/bin/Release
     - ./DA_ut
