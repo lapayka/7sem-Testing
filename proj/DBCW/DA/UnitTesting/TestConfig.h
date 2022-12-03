@@ -1,5 +1,5 @@
 #pragma once
-#include "DBCW/Config.h"
+#include "Config.h"
 #include "TestConnect.h"
 
 class TestConfig :

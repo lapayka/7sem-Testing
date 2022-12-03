@@ -1,6 +1,6 @@
 #pragma once
-#include "DBCW/IConnect.h"
-#include "DBCW/IPgConnect.h"
+#include "IConnect.h"
+#include "IPgConnect.h"
 
 class TestConnect :
     public IConnect

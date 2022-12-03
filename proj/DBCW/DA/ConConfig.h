@@ -1,8 +1,8 @@
 #pragma once
 #include "Config.h"
-#include "../DBCW/AdminConnect.h"
-#include "../DBCW/stUserConnect.h"
-#include "../DBCW/ArtistConnect.h"
+#include "AdminConnect.h"
+#include "stUserConnect.h"
+#include "ArtistConnect.h"
 
 using namespace std;
 class ConConfig : public Config

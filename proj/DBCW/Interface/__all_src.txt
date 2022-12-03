@@ -1,7 +1,0 @@
-	AdminInterface.h
-	ArtistInterface.h
-	BaseInterface.h
-	Login.h
-	UserInterface.h
-	View.h
-	View.cpp

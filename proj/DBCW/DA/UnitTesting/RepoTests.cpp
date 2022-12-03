@@ -3,7 +3,7 @@
 
 #include "TestConnect.h"
 #include "TestConfig.h"
-#include "DBCW/Facade.h"
+#include "Facade.h"
 
 BOOST_AUTO_TEST_SUITE(PgAlbum)
 
