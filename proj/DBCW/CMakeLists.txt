@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 include ( cmake/libs.cmake )
 
 set ( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/64/bin )
+message( ${CMAKE_SOURCE_DIR} )
 
 add_subdirectory( DBCW )
 add_subdirectory( DA )
