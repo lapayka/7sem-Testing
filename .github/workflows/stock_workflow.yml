@@ -15,8 +15,7 @@ jobs:
         pwd
         ls -a
         cd proj/DBCW
-        mkdir build && cd build
-        cmake ../
+        cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake -Wno-dev
         make -j12
     - uses: actions/upload-artifact@master
       with:
