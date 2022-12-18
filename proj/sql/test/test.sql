@@ -1,3 +1,7 @@
+create database test;
+
+\connect test;
+
 drop table UP;
 drop table ArtistRequest;     
 drop table PM;
@@ -239,18 +243,5 @@ BEGIN
 	
 	RETURN QUERY
         SELECT pl_id;
-END
-$$ LANGUAGE PLPGSQL;
-
-CREATE OR REPLACE PROCEDURE PR_DELETE_PLAYLIST(plst id)
-AS $$
-DECLARE pl_id int4;
-BEGIN
-    INSERT INTO playlists(name)
-    VALUES (playlist_name)
-    RETURNING id INTO pl_id;
-	
-	INSERT INTO UP (UsId, PlId)
-	VALUES (user_email, pl_id);
 END
 $$ LANGUAGE PLPGSQL;
