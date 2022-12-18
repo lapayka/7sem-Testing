@@ -46,6 +46,7 @@ jobs:
     - name: run tests
       run: |
         cd proj/DBCW/64/bin
+        ls -a
         chmod +x DA_INT
         ./DA_INT
         chmod +x DBCW_INT
