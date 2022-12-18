@@ -47,10 +47,10 @@ jobs:
       run: |
         cd proj/DBCW/64/bin
         ls -a
-        chmod +x DA_INT
-        ./DA_INT
-        chmod +x DBCW_INT
-        ./DBCW_INT
+        chmod +x DA_int
+        ./DA_int
+        chmod +x DBCW_int
+        ./DBCW_int
     - uses: actions/upload-artifact@master
       with:
         name: build-artifact
