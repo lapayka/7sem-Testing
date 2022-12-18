@@ -16,7 +16,7 @@ jobs:
         ls -a
         cd proj/DBCW
         mkdir build && cd build
-        cmake ../src
+        cmake ../
         make -j12
     - uses: actions/upload-artifact@master
       with:
