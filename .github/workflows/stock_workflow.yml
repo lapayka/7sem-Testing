@@ -71,7 +71,7 @@ jobs:
         cd proj/DBCW/64/bin
         ls -a
         chmod +x Main
-        ./Main 8000 & ../../TESTS/python3 e2e.py
+        ./Main 8000 & python3 ../../TESTS/e2e.py
     - uses: actions/upload-artifact@master
       with:
         name: build-artifact
