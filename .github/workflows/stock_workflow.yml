@@ -35,6 +35,17 @@ jobs:
         cd proj/DBCW
         cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake -Wno-dev
         cd build && make
+    - name: Unit tests
+      run: |
+        cd proj/DBCW/64/bin
+        chmod +x DA_ut
+        ./DA_ut
+        chmod +x DBCW_ut
+        ./DBCW_ut
+    - uses: actions/upload-artifact@master
+      with:
+        name: build-artifact
+        path: ./build
     - name: install psql
       run: apt install -y postgresql postgresql-contrib
     - name: test psql
@@ -43,7 +54,7 @@ jobs:
       run: |
         cd proj/sql/test
         psql -h postgres "sslmode=disable user=postgres port=5432 password=4Nikarulez_7" <test.sql
-    - name: run tests
+    - name: Integration tests
       run: |
         cd proj/DBCW/64/bin
         ls -a
