@@ -5,11 +5,15 @@ project ( ${PROJECT_NAME} CXX )
 set ( Source_Files
     ConfigFactory.cpp
     DBCW.cpp
+    ../DA/IntegrationTesting/TestConfig.cpp
+    ../DA/IntegrationTesting/TestConnect.cpp
 )
 
 set ( Header_Files 
     ConfigFactory.h
     Login.h
+    ../DA/IntegrationTesting/TestConfig.h
+    ../DA/IntegrationTesting/TestConnect.h
 )
 
 set ( all_sources ${Source_Files} ${Header_Files} )

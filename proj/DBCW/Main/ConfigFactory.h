@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ConConfig.h"
+#include "IntegrationTesting/TestConfig.h"
 
 #include <fstream>
 
