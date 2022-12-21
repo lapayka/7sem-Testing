@@ -1,4 +1,5 @@
-drop table UP;      
+drop table UP;
+drop table ArtistRequest;     
 drop table PM;
 drop table UC;
 drop table Playlists;
@@ -11,6 +12,15 @@ create table if not exists Users(
 	id serial,
 	email varchar(30) primary key,
 	password varchar(30)
+);
+
+create table if not exists ArtistRequest (
+	id serial primary key,
+	UsId varchar(30) REFERENCES Users(email),
+	name VARCHAR(50),
+	state varchar(10),
+	
+	UNIQUE(UsId)
 );
 
 create table if not exists Artists(
@@ -56,8 +66,13 @@ create table if not exists UC(
 	id serial primary key,
 	UsId varchar(30) REFERENCES Users(email),
 	MuId int REFERENCES MusComps (id),
-	audRate int
+	audRate int,
+	
+	UNIQUE(UsId, MuId)
 );
+
+alter table Muscomps add path varchar(50);
+alter table PM add column int;
 
 insert into users(email, password) values 
 ('abc1@mail.ru', '1234'),
@@ -227,18 +242,5 @@ BEGIN
 	
 	RETURN QUERY
         SELECT pl_id;
-END
-$$ LANGUAGE PLPGSQL;
-
-CREATE OR REPLACE PROCEDURE PR_DELETE_PLAYLIST(plst id)
-AS $$
-DECLARE pl_id int4;
-BEGIN
-    INSERT INTO playlists(name)
-    VALUES (playlist_name)
-    RETURNING id INTO pl_id;
-	
-	INSERT INTO UP (UsId, PlId)
-	VALUES (user_email, pl_id);
 END
 $$ LANGUAGE PLPGSQL;

@@ -43,6 +43,7 @@ create table if not exists MusComps(
 	AlId int REFERENCES Albums (id)
 );
 
+alter table add path varchar(50);
 
 create table if not exists Playlists(
 	id serial primary key,
@@ -70,3 +71,6 @@ create table if not exists UC(
 	
 	UNIQUE(UsId, MuId)
 );
+
+alter table Muscomps add path varchar(50);
+alter table PM add column int;

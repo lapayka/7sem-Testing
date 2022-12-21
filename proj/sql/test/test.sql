@@ -75,6 +75,9 @@ create table if not exists UC(
 	UNIQUE(UsId, MuId)
 );
 
+alter table Muscomps add path varchar(50);
+alter table PM add column int;
+
 insert into users(email, password) values 
 ('abc1@mail.ru', '1234'),
 ('abc12@mail.ru', '1234'),
