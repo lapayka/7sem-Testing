@@ -34,7 +34,7 @@ jobs:
         ls -a
         cd proj/DBCW
         cmake -B build -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake -Wno-dev
-        cd build && make
+        cd build && make -j 8
     - name: Unit tests
       run: |
         cd proj/DBCW/64/bin
