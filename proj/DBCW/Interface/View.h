@@ -20,11 +20,13 @@ public:
 	{
 		int i = 0;
 
-		std::cout << "Id     Name\n";
+		std::cout << "Id   Name\n";
 
 		for (const auto& item : items)
 		{
-			std::cout << ++i << " " << item << "\n";
+			cout.setf(ios::left);
+			cout.width(5);
+			std::cout << ++i << item << "\n";
 		}
 
 		std::cout << std::endl;
@@ -33,12 +35,14 @@ public:
 	void outputMusics(const vector<MusItem>& items)
 	{
 		int i = 0;
-
-		std::cout << "Id     Name   Duration   Album    Artist\n";
+		
+		std::cout << "Id   Name              Duration        Album                        Artist\n";
 
 		for (const auto& item : items)
 		{
-			std::cout << ++i << " " << item << "\n";
+			cout.setf(ios::left);
+			cout.width(5);
+			std::cout <<  ++i << " " << item << "\n";
 		}
 
 		std::cout << std::endl;

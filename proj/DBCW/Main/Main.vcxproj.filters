@@ -18,9 +18,15 @@
     <ClCompile Include="..\DBCW\DBCW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ConfigFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\DBCW\Facade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,3 +19,5 @@ target_link_libraries( ${PROJECT_NAME}
         DA
         PostgreSQL::PostgreSQL
 )
+
+add_test_( ${PROJECT_NAME} )

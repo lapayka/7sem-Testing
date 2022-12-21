@@ -11,7 +11,7 @@ private:
     Facade facade;
     string self_id;
 public:
-    UserInterface(Config& config, const string& email, const string& password)
+    UserInterface(shared_ptr<Config> config, const string& email, const string& password)
         :
         facade(config, email, password, USER_CONNECT),
         self_id(email)
@@ -33,7 +33,7 @@ public:
                 "0. Exit"
                 << std::endl;
             int choice;
-
+            cout << "Your choice: " << std::ends;
             std::cin >> choice;
 
             switch (choice)

@@ -14,6 +14,7 @@ void UserInterface::subwork(const vector<MusItem>& items)
             "0. Exit\n" << std::endl;
 
         int choice;
+        cout << "Your choice: " << std::ends;
         cin >> choice;
 
         switch (choice)
@@ -77,6 +78,7 @@ void UserInterface::subwork(const vector<PlstItem>& items)
                 "0. Exit\n" << std::endl;
 
             int choice;
+            cout << "Your choice: " << std::ends;
             cin >> choice;
 
             switch (choice)

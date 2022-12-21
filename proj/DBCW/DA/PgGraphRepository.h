@@ -39,7 +39,6 @@ private:
                 make_pair<int, int>(
                     stoi(id1),
                     stoi(id2)));
-            return result;
         }
         return result;
     }

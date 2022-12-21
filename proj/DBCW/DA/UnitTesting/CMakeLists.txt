@@ -11,6 +11,8 @@ target_sources( ${PROJECT_NAME}
         TestConfig.h
         TestConnect.cpp
         TestConnect.h
+        ObjectMother.h
+        ObjectMother.cpp
 )
 
 target_link_libraries( ${PROJECT_NAME}
@@ -19,4 +21,6 @@ target_link_libraries( ${PROJECT_NAME}
         DA
 )
 
-add_test( ${PROJECT_NAME} COMMAND $<TARGET_FILE:${PROJECT_NAME}>)
+set_target_properties( ${PROJECT_NAME} PROPERTIES VS_DEBUGGER_COMMAND_ARGUMENTS --log_level=all )
+
+add_test_ ( ${PROJECT_NAME} )

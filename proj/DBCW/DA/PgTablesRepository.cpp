@@ -6,11 +6,11 @@ std::vector<MusItem> PgTablesRepository::getMusByArtist(const string& id)
 
     PGresult* pgRes;
 
-    std::string query("select m.id, m.name, m.duration, al.name as albumName, ar.name as artistName "
+    std::string query("select m.id, m.name, m.duration, m.path, al.name as albumName, ar.name as artistName "
         "from MusComps m join Albums al on m.AlId = al.id "
         "join Artists ar on al.ArId = ar.email "
-        "where ar.email = '" + id + "'"
-        "order by m.audrate;");
+        "where ar.email = '" + id + 
+        "' order by m.audrate; ");
 
     pgRes = PQexec(connPtr, query.c_str());
                             
@@ -27,11 +27,10 @@ std::vector<MusItem> PgTablesRepository::getMusByAlbum(int id)
 
     PGresult* pgRes;
 
-    std::string query("select m.id, m.name, m.duration, al.name as albumName, ar.name as artistName "
+    std::string query("select m.id, m.name, m.duration, m.path, al.name as albumName, ar.name as artistName "
         "from MusComps m join Albums al on m.AlId = al.id "
         "join Artists ar on al.ArId = ar.email "
-        "where al.id = " + to_string(id) +
-        " order by m.audrate;");
+        "where al.id = " + to_string(id) + " order by m.audrate;");
 
     pgRes = PQexec(connPtr, query.c_str());
 
@@ -48,13 +47,15 @@ std::vector<MusItem> PgTablesRepository::getMusByPlaylist(int id)
 
     PGresult* pgRes;
 
-    std::string query("select m.id, m.name, m.duration, al.name as albumName, ar.name as artistName "
+    std::string query("select m.id, m.name, m.duration, m.path, al.name as albumName, ar.name as artistName "
                       "from Playlists pl join PM pc on pl.id = pc.PlId "
                       "               join MusComps m on pc.MuId = m.id "
                       "               join Albums al on m.AlId = al.id "
                       "               join Artists ar on al.ArId = ar.email "
-                      "               where pl.id = " + to_string(id) + 
-                      "               order by m.audrate;");
+                      "               where pl.id = " + to_string(id) +
+                      "               order by m.audrate;"
+                     // "               order by pc.sort;"
+    );
 
     pgRes = PQexec(connPtr, query.c_str());
 
@@ -85,24 +86,47 @@ std::vector<PlstItem> PgTablesRepository::getPlaylistsByUser(const string& id)
     return res;
 }
 
+std::vector<MusItem> PgTablesRepository::getMusByRegex(const string& name)
+{
+    std::vector<MusItem> res;
+
+    PGresult* pgRes;
+
+    std::string regex("'" + name + "%'");
+
+    std::string query("select m.id, m.name, m.duration, m.path, al.name as albumName, ar.name as artistName "
+        "from MusComps m join Albums al on m.AlId = al.id "
+        "join Artists ar on al.ArId = ar.email "
+        "where al.name LIKE " + regex + " or ar.name LIKE " + regex + " or m.name LIKE " + regex + ";");
+
+    pgRes = PQexec(connPtr, query.c_str());
+
+    res = getMusTableFromRes(pgRes);
+
+    PQclear(pgRes);
+
+    return res;
+}
+
 std::vector<MusItem> PgTablesRepository::getMusTableFromRes(PGresult* pgRes)
 {
     std::vector<MusItem> result;
 
-    auto max = PQntuples(pgRes);
-    for (int i = 0; i < max; i++)
+    for (int i = 0; i < PQntuples(pgRes); i++)
     {
         int i_num = PQfnumber(pgRes, "id");
         int n_num = PQfnumber(pgRes, "name");
         int d_num = PQfnumber(pgRes, "duration");
         int al_num = PQfnumber(pgRes, "albumName");
         int ar_num = PQfnumber(pgRes, "artistName");
+        int path_num = PQfnumber(pgRes, "path");
 
         char* id = PQgetvalue(pgRes, i, i_num);
         char* name = PQgetvalue(pgRes, i, n_num);
         char* duration = PQgetvalue(pgRes, i, d_num);
         char* alName = PQgetvalue(pgRes, i, al_num);
         char* arName = PQgetvalue(pgRes, i, ar_num);
+        char* path = PQgetvalue(pgRes, i, path_num);
 
         result.push_back(
             MusItem(
@@ -110,7 +134,8 @@ std::vector<MusItem> PgTablesRepository::getMusTableFromRes(PGresult* pgRes)
                 string(name),
                 string(duration),
                 string(alName),
-                string(arName)));
+                string(arName),
+                string(path)));
     }
     return result;
 }

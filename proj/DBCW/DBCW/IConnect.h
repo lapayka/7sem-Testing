@@ -13,6 +13,7 @@ using namespace std;
 
 struct Repositories
 {
+	Repositories() {}
 	Repositories(shared_ptr<IAlbumsRepository> a, shared_ptr<IMusRepository> b, shared_ptr<IPlaylistRepository> c, shared_ptr<ITablesRepository> d, shared_ptr<IArtistRepository> e, shared_ptr<IGraphRepo> f, shared_ptr<IUserRepo> u)
 		: albRepPtr(a),
 		  musRepPtr(b),
@@ -34,11 +35,12 @@ struct Repositories
 	shared_ptr<IUserRepo> usRepo;
 };
 
-enum Role { USER_CONNECT, ADMIN_CONNECT, ARTIST_CONNECT };
+enum Role { USER_CONNECT, ADMIN_CONNECT, ARTIST_CONNECT};
 
 class IConnect
 {
 public:
+
 	virtual Repositories getRepos() = 0;
 
 	virtual ~IConnect() = default;

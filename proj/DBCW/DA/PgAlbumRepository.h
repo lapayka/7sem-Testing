@@ -9,6 +9,12 @@ public:
 
     virtual void create(const std::vector<MusItem>& items, const std::string & name, const std::string& arId) override
     {
+        {
+            std::string query("BEGIN;");
+            PGresult* pgRes = PQexec(conn, query.c_str());
+            PQclear(pgRes);
+        }
+
         std::string query("select * from fn_add_album('" + name + "', '" + arId + "');");
         PGresult* pgRes = PQexec(conn, query.c_str());
 
@@ -22,6 +28,12 @@ public:
         {
             std::string query("insert into muscomps(name, audRate, duration, AlId) values ('" + item.name + "', 0, '" + item.duration + "', " + to_string(al_id) + ");");
             pgRes = PQexec(conn, query.c_str());
+            PQclear(pgRes);
+        }
+
+        {
+            std::string query("COMMIT;");
+            PGresult* pgRes = PQexec(conn, query.c_str());
             PQclear(pgRes);
         }
     }
@@ -48,7 +60,7 @@ public:
             int n_num = PQfnumber(pgRes, "id");
             char* name = PQgetvalue(pgRes, i, n_num);
 
-            result.push_back(atoi(name));
+            result.push_back(stoi(name));
         }
 
         PQclear(pgRes);

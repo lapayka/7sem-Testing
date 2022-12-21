@@ -12,7 +12,7 @@ private:
     Facade facade;
 public:
 
-    AdminInterface(Config& config, const string& email, const string& password)
+    AdminInterface(shared_ptr<Config> config, const string& email, const string& password)
         :
         facade(config, email, password, ADMIN_CONNECT)
     {
@@ -27,9 +27,10 @@ public:
             system("cls");
             std::cout << "1. Check requests\n"
                 "2. Get graph\n"
+                "0. Exit\n"
                 << std::endl;
             int choice;
-
+            cout << "Your choice: " << std::ends;
             std::cin >> choice;
 
             switch (choice)
@@ -82,7 +83,7 @@ private:
             outRequsets(items);
 
             cout << "To accept request input number of it (0 to exit)" << std::endl;
-
+            cout << "Your choice: " << std::ends;
             int number;
             cin >> number;
 

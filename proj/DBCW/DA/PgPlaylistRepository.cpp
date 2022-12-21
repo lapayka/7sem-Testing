@@ -25,3 +25,25 @@ void PgPlaylistRepository::aUpdate(const MusItem& item, int id)
 	PGresult* res = PQexec(connPtr, query.c_str());
 	PQclear(res);
 }
+
+void PgPlaylistRepository::delCompFromPlst(int mid, int pid)
+{
+	string query("delete from PM where PlId = " + to_string(pid) + " and MuId = " + to_string(mid) + "; ");
+	PGresult* res = PQexec(connPtr, query.c_str());
+	PQclear(res);
+}
+
+void PgPlaylistRepository::setOrder(int id, const vector<int> & orders)
+{
+	PGresult *pgres = PQexec(connPtr, "BEGIN;");
+	PQclear(pgres);
+	for (int i = 0; i < orders.size(); i++)
+	{
+		string query("update PM set sort = " + to_string(i) + " where plid = " + to_string(id) + " and MuId = " + to_string(orders[i]) + +";");
+
+		PGresult * res = PQexec(connPtr, query.c_str()); 
+		PQclear(res);
+	}
+	pgres = PQexec(connPtr, "COMMIT;");
+	PQclear(pgres);
+}

@@ -15,13 +15,12 @@ private:
 	shared_ptr<IConnect> connect;
 	Repositories repos;
 public:
-	Facade(Config& config, const string& email, const string& pass, Role role)
+	Facade(shared_ptr<Config> config, const string& email, const string& pass, Role role)
 		:
-		connect(config.getConnectionMap()[role](email, pass)),
+		connect(config->getConnectionMap()[role](email, pass)),
 		repos(connect->getRepos())
 	{
 	}
-
 
 	vector<MusItem> getMusicByName(const string& MusName) { return repos.musRepPtr->getMusByName(MusName); };
 	vector<MusItem> getMusicByAlbum(const string &AlbumName);
@@ -30,11 +29,16 @@ public:
 	vector<MusItem> getMusicByArtist(const string& ArtistName);
 	vector<MusItem> getMusicByPlaylist(int id) { return repos.tabRepPtr->getMusByPlaylist(id); };
 
+	vector<MusItem> getMusicByRegex(const string& name) { return repos.tabRepPtr->getMusByRegex(name); }
+
 	vector<PlstItem> getPlstByUser(const string& id) { return repos.tabRepPtr->getPlaylistsByUser(id); }
 
 	void createPlaylist(const string& userId, const string& name) { repos.plstRepPtr->create(name, userId); };
 	void updatePlaylist(int id, const MusItem& item) {repos.plstRepPtr->aUpdate(item, id); }
 	void deletePlaylist(int id) { repos.plstRepPtr->del(id); };
+	void setPlstOrder(int id, const vector<int> & orders) { repos.plstRepPtr->setOrder(id, orders); }
+
+	void deleteMusFromPlaylist(int mid, int pid) { repos.plstRepPtr->delCompFromPlst(mid, pid); }
 
 
 	void createAlbum(const string& id, const string& name, const vector<MusItem>& items) { repos.albRepPtr->create(items, name, id); };

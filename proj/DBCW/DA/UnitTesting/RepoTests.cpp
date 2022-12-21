@@ -4,6 +4,9 @@
 #include "TestConnect.h"
 #include "TestConfig.h"
 #include "Facade.h"
+#include "ObjectMother.h"
+
+ObjectMother mother;
 
 BOOST_AUTO_TEST_SUITE(PgAlbum)
 
@@ -14,7 +17,7 @@ BOOST_AUTO_TEST_CASE(PgAlbumGetByNameTest)
 	
 	Repositories repos(conn.getRepos());
 	
-	vector<int> res(repos.albRepPtr->getAlbumsByName("vga11"));
+	vector<int> res(repos.albRepPtr->getAlbumsByName(mother.GetAlbumName(1, 1)));
 	
 	BOOST_CHECK_EQUAL(res[0], 1);
 	BOOST_CHECK_EQUAL(res[1], 4);
@@ -27,18 +30,18 @@ BOOST_AUTO_TEST_CASE(PgAlbumCreateTestPlusDelete)
 	
 	Repositories repos(conn.getRepos());
 	
-	repos.albRepPtr->create({ MusItem(0, "testmus1", "5:40", "testalbum", "abc1Q@mail.ru"),
-							  MusItem(0, "testmus2", "3:40", "testalbum", "abc1Q@mail.ru"), 
-							  MusItem(0, "testmus3", "4:40", "testalbum", "abc1Q@mail.ru"),
-		}, "testalbum", "abc1@mail.ru");
+	repos.albRepPtr->create({ mother.GetDefaultMusItemByDuration("5:40"),
+							  mother.GetDefaultMusItemByDuration("3:40"),
+							  mother.GetDefaultMusItemByDuration("4:40")
+		}, mother.GetDefaultAlbumName(), mother.GetEmailByName("abc1"));
 	
-	vector<int> res(repos.albRepPtr->getAlbumsByName("testalbum"));
+	vector<int> res(repos.albRepPtr->getAlbumsByName(mother.GetDefaultAlbumName()));
 	
 	BOOST_TEST(res[0] > 8);
 	
 	repos.albRepPtr->alDelete(res[0]);
 	
-	res = repos.albRepPtr->getAlbumsByName("testalbum");
+	res = repos.albRepPtr->getAlbumsByName(mother.GetDefaultAlbumName());
 	
 	BOOST_CHECK_EQUAL(res.size(), 0);
 }
@@ -55,7 +58,7 @@ BOOST_AUTO_TEST_CASE(PgArtistsGetByNameTest)
 	
 	vector<string> res(repos.artRepPtr->getArtistsByName("vgg"));
 	
-	BOOST_CHECK_EQUAL(res[0], "abc1@mail.ru");
+	BOOST_CHECK_EQUAL(res[0], mother.GetEmailByName("abc1"));
 
 }
 
@@ -69,12 +72,12 @@ BOOST_AUTO_TEST_CASE(PgArtistsCreateTest)
 	
 	Repositories repos(conn.getRepos());
 	
-	repos.artRepPtr->createArtist("testEmail@mail.ru", "123", "CreateTestArtist");
+	repos.artRepPtr->createArtist(mother.GetEmailByName("testEmail"), "123", mother.GetDefaultArtistName());
 	
 	
-	vector<string> res(repos.artRepPtr->getArtistsByName("CreateTestArtist"));
+	vector<string> res(repos.artRepPtr->getArtistsByName(mother.GetDefaultArtistName()));
 	
-	BOOST_CHECK_EQUAL(res[0], "testEmail@mail.ru");
+	BOOST_CHECK_EQUAL(res[0], mother.GetEmailByName("testEmail"));
 
 }
 
@@ -91,7 +94,7 @@ BOOST_AUTO_TEST_CASE(PgMusicsCreateTest)
 	
 	Repositories repos(conn.getRepos());
 	
-	repos.musRepPtr->update("abc1@mail.ru", 7);
+	repos.musRepPtr->update(mother.GetEmailByName("abc1"), 7);
 	
 	BOOST_TEST(true);
 }
@@ -108,9 +111,9 @@ BOOST_AUTO_TEST_CASE(PgTablesGetMusicByAlbumTest)
 	
 	vector<MusItem> res(repos.tabRepPtr->getMusByAlbum(6));
 	
-	BOOST_CHECK_EQUAL(res[0].name, "vgm322");
-	BOOST_CHECK_EQUAL(res[1].name, "vgm323");
-	BOOST_CHECK_EQUAL(res[2].name, "vgm321");
+	BOOST_CHECK_EQUAL(res[0].name, mother.GetMusName(3, 2, 2));
+	BOOST_CHECK_EQUAL(res[1].name, mother.GetMusName(3, 2, 3));
+	BOOST_CHECK_EQUAL(res[2].name, mother.GetMusName(3, 2, 1));
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -123,16 +126,16 @@ BOOST_AUTO_TEST_CASE(PgTablesGetMusicByArtistTest)
 	
 	Repositories repos(conn.getRepos());
 	
-	vector<MusItem> res(repos.tabRepPtr->getMusByArtist("abc123@mail.ru"));
+	vector<MusItem> res(repos.tabRepPtr->getMusByArtist(mother.GetEmailByName("abc123")));
 	
 	
-	BOOST_CHECK_EQUAL(res[0].name, "vgm322");
-	BOOST_CHECK_EQUAL(res[1].name, "vgm323");
-	BOOST_CHECK_EQUAL(res[2].name, "vgm411");
-								 
-	BOOST_CHECK_EQUAL(res[3].name, "vgm413");
-	BOOST_CHECK_EQUAL(res[4].name, "vgm321");
-	BOOST_CHECK_EQUAL(res[5].name, "vgm412");
+	BOOST_CHECK_EQUAL(res[0].name, mother.GetMusName(3, 2, 2));
+	BOOST_CHECK_EQUAL(res[1].name, mother.GetMusName(3, 2, 3));
+	BOOST_CHECK_EQUAL(res[2].name, mother.GetMusName(4, 1, 1));
+															 
+	BOOST_CHECK_EQUAL(res[3].name, mother.GetMusName(4, 1, 3));
+	BOOST_CHECK_EQUAL(res[4].name, mother.GetMusName(3, 2, 1));
+	BOOST_CHECK_EQUAL(res[5].name, mother.GetMusName(4, 1, 2));
 }
 
 
@@ -142,10 +145,10 @@ BOOST_AUTO_TEST_CASE(PgTablesGetPlaylistsByUserTest)
 	
 	Repositories repos(conn.getRepos());
 	
-	vector<PlstItem> res(repos.tabRepPtr->getPlaylistsByUser("abc123@mail.ru"));
+	vector<PlstItem> res(repos.tabRepPtr->getPlaylistsByUser(mother.GetEmailByName("abc123")));
 	
-	BOOST_CHECK_EQUAL(res[0].name, "vgp3");
-	BOOST_CHECK_EQUAL(res[1].name, "vgp11");
+	BOOST_CHECK_EQUAL(res[0].name, mother.GetPlstName(3));
+	BOOST_CHECK_EQUAL(res[1].name, mother.GetPlstName(11));
 }
 
 
@@ -157,9 +160,9 @@ BOOST_AUTO_TEST_CASE(PgTablesGetMusicByPlaylistTest)
 	
 	vector<MusItem> res(repos.tabRepPtr->getMusByPlaylist(6));
 	
-	BOOST_CHECK_EQUAL(res[0].name, "vgm322");
-	BOOST_CHECK_EQUAL(res[1].name, "vgm123");
-	BOOST_CHECK_EQUAL(res[2].name, "vgm111");
+	BOOST_CHECK_EQUAL(res[0].name, mother.GetMusName(3, 2, 2));
+	BOOST_CHECK_EQUAL(res[1].name, mother.GetMusName(1, 2, 3));
+	BOOST_CHECK_EQUAL(res[2].name, mother.GetMusName(1, 1, 1));
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -172,9 +175,9 @@ BOOST_AUTO_TEST_CASE(PgPlaylistsTest)
 	
 	Repositories repos(conn.getRepos());
 	
-	repos.plstRepPtr->create("testPlst", "abc123@mail.ru");
-	
-	vector<PlstItem> res(repos.tabRepPtr->getPlaylistsByUser("abc123@mail.ru"));
+	repos.plstRepPtr->create(mother.GetDefaultPlstName(), mother.GetEmailByName("abc123"));
+
+	vector<PlstItem> res(repos.tabRepPtr->getPlaylistsByUser(mother.GetEmailByName("abc123")));
 	
 	int i = 0;
 	

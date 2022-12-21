@@ -6,19 +6,22 @@
 #include "ArtistInterface.h"
 #include "ConnectException.h"
 #include "LoginException.h"
+#include "WebWrapper.h"
 
 class Login
 {
 private:
-	Config& config;
+	shared_ptr<Config> config;
 public:
 	Login() = delete;
-	Login(Config& conf) : config(conf) {}
+	Login(shared_ptr<Config> conf) : config(conf) {}
 
-	shared_ptr<BaseInterface> create()
+	shared_ptr<BaseInterface> create(bool IsWeb)
 	{
 		while (true)
 		{
+			if (IsWeb)
+				return shared_ptr<BaseInterface>(new WebWrapper(config));
 			system("cls");
 			cout << "Login as\n"
 				"1. User\n"
@@ -26,8 +29,11 @@ public:
 				"3. Admin\n" << std::endl;
 
 			int num;
+			cout << "Your choice: " << std::ends;
 
 			cin >> num;
+
+			system("cls");
 
 			switch (num)
 			{
@@ -46,16 +52,17 @@ public:
 				string pass;
 				cin >> pass;
 
+				system("cls");
 				try
 				{
 					return shared_ptr<BaseInterface>(new ArtistInterface(config, email, pass));
 				}
-				catch (const ConnectException& e)
+				catch (const ConnectException& )
 				{
 					cout << "\nError while connecting db\n" << std::endl;
 					break;
 				}
-				catch (const LoginException& e)
+				catch (const LoginException& )
 				{
 					cout << "\nWrong login or email\n" << std::endl;
 				}
@@ -66,7 +73,8 @@ public:
 				cout << "password" << std::endl;
 				string pass;
 				cin >> pass;
-		
+			
+				system("cls");
 				try
 				{
 					return shared_ptr<BaseInterface>(new AdminInterface(config, "", pass));
@@ -79,6 +87,7 @@ public:
 				break;
 			}
 			default:
+				cout << "No such choice" << std::endl;
 				break;
 			}
 		}
@@ -92,7 +101,7 @@ private:
 				"2. Register\n" << std::endl;
 
 			int num;
-
+			cout << "Your choice: " << std::ends;
 			cin >> num;
 
 			switch (num)
@@ -107,16 +116,17 @@ private:
 				string pass;
 				cin >> pass;
 
+				system("cls");
 				try
 				{
 					return shared_ptr<BaseInterface>(new UserInterface(config, email, pass));
 				}
-				catch (const ConnectException & e)
+				catch (const ConnectException & )
 				{
 					cout << "\nError while connecting db\n" << std::endl;
 					break;
 				}
-				catch (const LoginException& e)
+				catch (const LoginException& )
 				{
 					cout << "\nWrong login or email\n" << std::endl;
 				}
@@ -136,13 +146,14 @@ private:
 				string password;
 				cin >> password;
 
+				system("cls");
 				if (Facade(config, "", "4Nikarulez_7", ADMIN_CONNECT).loginUser(email, password))
 				{
-					cout << "\nSuccess login\n" << std::endl;
+					cout << "\nSuccessful login\n" << std::endl;
 				}
 				else
 				{
-					cout << "\nUser with same email already exists\n" << std::endl;
+					cout << "\nUser with the same email already exists\n" << std::endl;
 				}
 			}
 			default:

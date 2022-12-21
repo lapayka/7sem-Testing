@@ -27,5 +27,6 @@ public:
 	virtual std::vector<MusItem> getMusByPlaylist(int id) override {return std::vector<MusItem>(); };
 	virtual std::vector<PlstItem> getPlaylistsByUser(const string& id) override {return std::vector<PlstItem>(); };
 
+	virtual std::vector<MusItem> getMusByRegex(const string& name) override {return std::vector<MusItem>();};
 };
 

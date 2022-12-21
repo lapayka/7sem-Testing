@@ -9,7 +9,7 @@ BOOST_AUTO_TEST_SUITE(FacadeTS)
 
 BOOST_AUTO_TEST_CASE(BLTablesGetMusicByAlbumTest) //
 {
-	ConfigMock cm;
+	shared_ptr<ConfigMock> cm = make_shared<ConfigMock>();
 
 	Facade facade(cm, "", "", ADMIN_CONNECT);
 
@@ -23,7 +23,7 @@ BOOST_AUTO_TEST_CASE(BLTablesGetMusicByAlbumTest) //
 
 BOOST_AUTO_TEST_CASE(BLTablesGetMusicByArtistTest)//
 {
-	ConfigMock cm;
+	shared_ptr<ConfigMock> cm = make_shared<ConfigMock>();
 
 	Facade facade(cm, "", "", ADMIN_CONNECT);
 

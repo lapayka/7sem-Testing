@@ -6,7 +6,7 @@
 
 BOOST_AUTO_TEST_CASE(GetMusicByAlbumNameTest)
 {
-	TestConfig conf;
+	shared_ptr<TestConfig> conf = make_shared<TestConfig>();
 
 
 	Facade fac(conf, string(""), string(""), ADMIN_CONNECT);
@@ -20,7 +20,7 @@ BOOST_AUTO_TEST_CASE(GetMusicByAlbumNameTest)
 
 BOOST_AUTO_TEST_CASE(GetMusicByArtistNameTest)
 {
-	TestConfig conf;
+	shared_ptr<TestConfig> conf = make_shared<TestConfig>();
 
 
 	Facade fac(conf, string(""), string(""), ADMIN_CONNECT);

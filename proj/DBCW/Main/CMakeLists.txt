@@ -3,10 +3,12 @@ set ( PROJECT_NAME Main )
 project ( ${PROJECT_NAME} CXX )
 
 set ( Source_Files
+    ConfigFactory.cpp
     DBCW.cpp
 )
 
 set ( Header_Files 
+    ConfigFactory.h
     Login.h
 )
 
@@ -22,4 +24,6 @@ target_link_libraries( ${PROJECT_NAME}
         DA
         DBCW
         Interface
+        WebWrapper
+        jwt
 )

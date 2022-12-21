@@ -2,14 +2,15 @@
 
 ostream& operator << (ostream& str, const PlstItem& item)
 {
-	str << item.name;
+	str.width(30), str << item.name;
 
 	return str;
 }
 
 ostream& operator << (ostream& str, const MusItem& item)
 {
-	str << item.name << " " << item.duration << " " << item.alName << " " << item.arName;
+	str.width(20);
+	str  << item.name, str.width(15), str << item.duration, str.width(30), str << item.alName, str.width(30), str << item.arName;
 
 	return str;
 }

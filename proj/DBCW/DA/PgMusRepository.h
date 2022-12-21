@@ -31,9 +31,8 @@ public:
                 "COMMIT;");
         }
 
-        PGresult* res2 = PQexec(connection, query.c_str());
+        PQexec(connection, query.c_str());
         PQclear(res);
-        PQclear(res2);
     };
 private:
     std::vector<MusItem> getMusTableFromRes(PGresult* pgRes);

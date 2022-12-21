@@ -11,29 +11,25 @@
 #include "ArtistInterface.h"
 #include "UserInterface.h"
 #include "Login.h"
-#include "ConConfig.h"
+#include "ConfigFactory.h"
 
+#include <iostream>
+#include "iostream"
+using namespace std;
 
-int main(int argc, char** argv)
-{
-    ConConfig conf;
-    Login log(conf);
+#include "jwt-cpp/jwt.h"
 
-    ifstream input("test.txt");
-    if (input.is_open())
-    {
-        std::ifstream in("TESTS/e2e.txt");
-        //установим новый буфер, очистим буфер и вернем старый
-        std::streambuf* buf = cin.rdbuf(in.rdbuf());
-        //теперь cin читает из буфера файлового потока
-        log.create()->work();
-        //установим старый
-        cin.rdbuf(buf);
-    }
-    else
-        log.create()->work();
+int port;
 
-    
+int main(int argc, const char** argv) {
+    ConfigFactory factory;
+
+    bool is_web = argc == 2;
+    if (is_web)
+        port = std::atoi(argv[1]);
+
+    Login log(factory.create("../../config.txt"));
+    log.create(is_web)->work();
 
     return 0;
 }

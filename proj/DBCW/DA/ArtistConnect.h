@@ -7,8 +7,8 @@ class ArtistConnect :
 public:
     ArtistConnect(const string& email, const string& pass)
     {
-        string connParameters = "dbname = test user = postgres password = " + pass;
-        connPtr = PQconnectdb(connParameters.c_str());
+        char connParameters[] = "dbname = postgres user = artist password = artist";
+        connPtr = PQconnectdb(connParameters);
 
         if (PQstatus(connPtr) != CONNECTION_OK)
         {

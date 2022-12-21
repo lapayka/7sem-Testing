@@ -11,7 +11,7 @@ private:
     string self_id;
 public:
 
-    ArtistInterface(Config & config, const string& email, const string& password)
+    ArtistInterface(shared_ptr<Config> config, const string& email, const string& password)
         :
         facade(config, email, password, ARTIST_CONNECT),
         self_id(email)
@@ -29,7 +29,7 @@ public:
                 "0. Exit\n" << std::endl;
 
             int choice;
-
+            cout << "Your choice: " << std::ends;
             cin >> choice;
 
             switch (choice)
@@ -76,7 +76,7 @@ private:
 
             cin >> name >> duration;
 
-            res.push_back(MusItem(0, name, duration, aname, self_id));
+            res.push_back(MusItem(0, name, duration, aname, self_id, string()));
         }
 
         return res;

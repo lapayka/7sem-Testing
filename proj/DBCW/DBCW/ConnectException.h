@@ -13,3 +13,4 @@ public:
 	ConnectException(const string& _str) : str(_str) {}
 	virtual char const* what() const noexcept override { return str.c_str(); };
 };
+

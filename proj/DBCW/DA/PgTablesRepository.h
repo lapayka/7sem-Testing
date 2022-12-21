@@ -12,6 +12,7 @@ public:
 	virtual std::vector<MusItem> getMusByAlbum(int id) override;
 	virtual std::vector<MusItem> getMusByPlaylist(int id) override;
 	virtual std::vector<PlstItem> getPlaylistsByUser(const string &id) override;
+	virtual std::vector<MusItem> getMusByRegex(const string& name) override;
 
 private:
 	PGconn* connPtr;
