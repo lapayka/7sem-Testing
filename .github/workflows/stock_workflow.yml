@@ -68,7 +68,6 @@ jobs:
         path: ./build
     - name: E2E tests
       run: |
-        pip install requests
         cd proj/DBCW/64/bin
         ls -a
         chmod +x Main
